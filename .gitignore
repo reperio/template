@@ -61,3 +61,6 @@ typings/
 .idea/workspace.xml
 .idea/tasks.xml
 
+# Plain JavaScript files
+*.js
+*.js.map
