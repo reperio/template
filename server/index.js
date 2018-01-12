@@ -9,9 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Hapi = require("hapi");
+const api_1 = require("./api");
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const server = new Hapi.Server({ port: 3000, host: 'localhost' });
+        api_1.register(server);
         yield server.start();
         console.log(`Server running at: ${server.info.uri}`);
     });

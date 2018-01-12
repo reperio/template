@@ -1,23 +1,16 @@
-import * as fs from 'fs';
+import * as fs from 'file-system';
 import * as path from 'path';
+
 
 const thisFileBasename = path.basename(module.filename);
 
-const registerFunc = (server, options, next) => {
+export function register (server: any) : void {
     // autoload all files in this directory
     fs
         .readdirSync(__dirname)
         .filter(fileName => (fileName.indexOf('.') !== 0) && (fileName !== thisFileBasename) && (fileName.slice(-3) === '.js'))
-.forEach(fileName => {
-        server.route(require(path.join(__dirname, fileName)));
-});
-
-    next();
+        .forEach(fileName => {
+            server.route(require(path.join(__dirname, fileName)).default);
+            console.log(`Added ${fileName} to the API routes.`);
+        });
 };
-
-registerFunc.attributes = {
-    name: "prospectstream-api",
-    version: "1.0.0"
-};
-
-module.exports = registerFunc;

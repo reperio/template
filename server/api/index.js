@@ -1,21 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs = require("fs");
+const fs = require("file-system");
 const path = require("path");
 const thisFileBasename = path.basename(module.filename);
-const registerFunc = (server, options, next) => {
+function register(server) {
     // autoload all files in this directory
     fs
         .readdirSync(__dirname)
         .filter(fileName => (fileName.indexOf('.') !== 0) && (fileName !== thisFileBasename) && (fileName.slice(-3) === '.js'))
         .forEach(fileName => {
-        server.route(require(path.join(__dirname, fileName)));
+        server.route(require(path.join(__dirname, fileName)).default);
+        console.log(`Added ${fileName} to the API routes.`);
     });
-    next();
-};
-registerFunc.attributes = {
-    name: "prospectstream-api",
-    version: "1.0.0"
-};
-module.exports = registerFunc;
+}
+exports.register = register;
+;
 //# sourceMappingURL=index.js.map
