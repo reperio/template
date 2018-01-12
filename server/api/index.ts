@@ -5,7 +5,7 @@ import * as winston from 'winston';
 
 const thisFileBasename = path.basename(module.filename);
 
-export function register (server: any) : void {
+export function registerApiRoutes (server: any) : void {
     // autoload all files in this directory
     fs
         .readdirSync(__dirname)
