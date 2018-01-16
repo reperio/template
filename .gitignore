@@ -64,3 +64,6 @@ typings/
 # Plain JavaScript files
 *.js
 *.js.map
+
+# Package lock
+*/package-lock.json
