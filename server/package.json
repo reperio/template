@@ -4,7 +4,7 @@
   "description": "Project skeleton with the different frameworks required for our web services",
   "main": "index.ts",
   "scripts": {
-    "test": "test"
+    "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.spec.ts"
   },
   "author": "",
   "license": "ISC",
@@ -13,9 +13,14 @@
     "file-system": "^2.2.2",
     "hapi": "^17.2.0",
     "hapijs-status-monitor": "git+https://github.com/bgardner87/hapijs-status-monitor.git",
-    "mocha": "^4.1.0",
     "path": "^0.12.7",
     "winston": "^2.4.0",
     "winston-daily-rotate-file": "^1.7.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.46",
+    "mocha": "^4.1.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
   }
 }
