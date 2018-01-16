@@ -3,7 +3,6 @@
 import * as Hapi from 'hapi';
 import {registerApiRoutes} from './api';
 import * as winston from 'winston';
-import * as statusMonitor from 'hapijs-status-monitor';
 require('winston-daily-rotate-file');
 
 function configureLogs() {
@@ -23,6 +22,7 @@ async function startServer() : Promise<void> {
     const server = new Hapi.Server({ port: 3000, host: 'localhost' });
 
     registerApiRoutes(server);
+    await server.register({plugin: require('hapijs-status-monitor')});
 
     await server.start();
     winston.info(`Server running at: ${server.info.uri}`);

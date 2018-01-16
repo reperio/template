@@ -12,6 +12,7 @@
     "@types/node": "^9.3.0",
     "file-system": "^2.2.2",
     "hapi": "^17.2.0",
+    "hapijs-status-monitor": "git+https://github.com/bgardner87/hapijs-status-monitor.git",
     "mocha": "^4.1.0",
     "path": "^0.12.7",
     "winston": "^2.4.0",
