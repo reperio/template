@@ -5,7 +5,7 @@ import {registerApiRoutes} from './api';
 import * as winston from 'winston';
 require('winston-daily-rotate-file');
 
-export class Server {
+export default class Server {
     server:any;
 
     constructor() {
