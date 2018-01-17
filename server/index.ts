@@ -43,7 +43,7 @@ export default class Server {
         
     }
 
-    async startServer(isTestMode:boolean) : Promise<void> {
+    async startServer(isTestMode: boolean) : Promise<void> {
         //register standard plugins
         await this.server.register({plugin: require('hapijs-status-monitor')});
 
@@ -51,8 +51,8 @@ export default class Server {
         registerApiRoutes(this.server);
     
         if (!isTestMode) {
-            await server.start();
-            this.logger.info(`Server running at: ${server.info.uri}`);
+            await this.server.start();
+            this.server.app.logger.info(`Server running at: ${this.server.info.uri}`);
         }
     }
 }
