@@ -41,8 +41,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server -p 8080 ./dist",
-    "webpack-watch": "webpack -wd",
-    "webpack": "webpack",
+    "webpack-watch": "tsc --lib es6 webpack.config.ts && webpack --config webpack.config.js -wd",
+    "webpack": "tsc --lib es6 webpack.config.ts && webpack --config webpack.config.js",
     "dev": "concurrently -k -r -s first \"npm run start\" \"npm run webpack-watch\""
   },
   "repository": {
