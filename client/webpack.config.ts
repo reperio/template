@@ -1,30 +1,36 @@
 import * as path from 'path';
 import {Configuration} from 'webpack';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const config : Configuration = {
-    entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    entry: [
+        'core-js',
+        './src/index.tsx'
+    ],
+    devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'app.bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                query: {
-                    presets: [
-                        'typescript',
-                        'es2015',
-                        'react'
-                    ]
-                }
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
             }
         ]
     },
-    stats: {
-        colors: true
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ]
     },
-    devtool: 'source-map'
+    plugins: [new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
+        template: 'src/index.html',
+        minify: {
+            removeComments: true,
+            collapseWhitespace: true
+        },
+        inject: true
+    })]
 };
-export default config;
+module.exports = config;
