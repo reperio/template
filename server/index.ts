@@ -3,7 +3,7 @@
 import * as Hapi from 'hapi';
 import {registerApiRoutes} from './api';
 import * as winston from 'winston';
-require('winston-daily-rotate-file');
+import 'winston-daily-rotate-file';
 
 export default class Server {
     server:any;
@@ -36,7 +36,7 @@ export default class Server {
             ]
         });
 
-        this.server = new Hapi.Server({ port: 3000, host: 'localhost' });
+        this.server = new Hapi.Server({ port: 3000, host: 'localhost', routes: {cors: true} });
         this.server.app.logger = logger;
 
         

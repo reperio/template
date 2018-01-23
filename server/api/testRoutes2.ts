@@ -3,7 +3,7 @@ const routes = [
         method: 'GET',
         path: '/test3',
         handler: (req, h) => {
-            return 'This is in a different file.';
+            return {test: 'This is in a different file.'};
         }
     }
 ];
