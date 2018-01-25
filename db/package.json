@@ -10,9 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "knex": "^0.14.2",
+    "nconf": "^0.10.0",
     "objection": "^0.9.4"
   },
   "devDependencies": {
-    "@types/knex": "^0.14.4"
+    "@types/knex": "^0.14.4",
+    "@types/nconf": "0.0.37"
   }
 }
