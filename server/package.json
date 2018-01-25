@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.spec.ts"
   },
-  "author": "",
+  "author": "Seven Hills Technology",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^9.3.0",

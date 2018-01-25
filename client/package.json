@@ -53,7 +53,7 @@
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/sevenhillstechnology/prospectstream-client.git"
   },
-  "author": "",
+  "author": "Seven Hills Technology",
   "license": "ISC",
   "homepage": "https://bitbucket.org/sevenhillstechnology/prospectstream-client#readme"
 }

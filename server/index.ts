@@ -4,6 +4,7 @@ import * as Hapi from 'hapi';
 import {registerApiRoutes} from './api';
 import * as winston from 'winston';
 import 'winston-daily-rotate-file';
+import {DB} from '../db'
 
 export default class Server {
     server:any;
@@ -38,9 +39,7 @@ export default class Server {
 
         this.server = new Hapi.Server({ port: 3000, host: 'localhost', routes: {cors: true} });
         this.server.app.logger = logger;
-
-        
-        
+        this.server.app.db = new DB();
     }
 
     async startServer(isTestMode: boolean) : Promise<void> {
