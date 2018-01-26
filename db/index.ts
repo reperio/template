@@ -10,24 +10,8 @@ export class DB {
     constructor() {
         nconf.argv().env().file('development', path.resolve(__dirname, 'config', 'development.json'));
         console.log(nconf.get('db-username'));
-        this.knex = Knex({
-            client: 'pg',
-            connection: {
-                host: '127.0.0.1',
-                user: nconf.get('db-username'),
-                password: nconf.get('db-password'),
-                database: 'sample'
-            }
-        });
+        this.knex = Knex(nconf.get('knex'));
         Model.knex(this.knex);
-    }
-
-    async addTables() : Promise<void> {
-        await this.knex.schema.createTableIfNotExists('Note', table => {
-            table.increments('id').primary();
-            table.string('text');
-        });
-        console.log('table added');
     }
 
     testRepository() : TestRepository {
