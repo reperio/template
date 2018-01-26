@@ -20,7 +20,6 @@ export class DB {
             }
         });
         Model.knex(this.knex);
-        this.addTables().catch(console.error);
     }
 
     async addTables() : Promise<void> {

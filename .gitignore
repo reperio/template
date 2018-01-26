@@ -63,6 +63,7 @@ typings/
 
 # Plain JavaScript files
 *.js
+!db/migrations/*
 *.js.map
 
 # Package lock
