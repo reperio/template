@@ -1,4 +1,5 @@
 import React from 'react';
+import {wrap} from '../store/reactReduxContainer';
 import {TestService} from '../services';
 
 interface IState {
@@ -7,17 +8,18 @@ interface IState {
     notes: string[];
 }
 
-export class TestPage extends React.Component<{}, IState> {
-    private testService: TestService;
+interface IProps {
+    testService: TestService;
+}
 
-    constructor(props : Readonly<{}>) {
+class TestPage implements React.StatelessComponent {
+    constructor(props : Readonly<IProps>) {
         super(props);
         this.state = {testVal: "-", noteToAdd: "", notes: []};
-        this.testService = new TestService();
-        this.testService.getTestValue().then(val => {
+        this.props.testService.getTestValue().then(val => {
             this.setState({testVal: val});
         });
-        this.testService.getNotes().then(val => {
+        this.props.testService.getNotes().then(val => {
             this.setState({notes: val});
         });
     }
@@ -28,7 +30,7 @@ export class TestPage extends React.Component<{}, IState> {
     async addNote(e: any) : Promise<void> {
         const note = this.state.noteToAdd;
         this.setState({ noteToAdd: "" });
-        const newNote = await this.testService.addNote(note);
+        const newNote = await this.props.testService.addNote(note);
         this.setState({notes: this.state.notes.concat([newNote])})
     }
 
@@ -44,3 +46,5 @@ export class TestPage extends React.Component<{}, IState> {
         );
     }
 }
+
+export default wrap(TestPage);

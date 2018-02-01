@@ -6,7 +6,7 @@ import rootReducer from '../reducers';
 
 export const history = createHistory();
 
-function configureStore(initialState:object) {
+function configureStore(initialState: object) {
     const reactRouterMiddleware = routerMiddleware(history);
     const middleware = [
         thunk,
