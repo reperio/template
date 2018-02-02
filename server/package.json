@@ -10,12 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^9.3.0",
-    "file-system": "^2.2.2",
-    "hapi": "^17.2.0",
-    "hapijs-status-monitor": "git+https://github.com/bgardner87/hapijs-status-monitor.git",
-    "path": "^0.12.7",
-    "winston": "^2.4.0",
-    "winston-daily-rotate-file": "^1.7.2"
+    "hapijs-starter": "git+https://github.com/reperio/hapijs-starter.git",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.46",
