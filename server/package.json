@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^9.3.0",
-    "hapijs-starter": "git+https://github.com/reperio/hapijs-starter.git",
+    "hapijs-starter": "^2.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
