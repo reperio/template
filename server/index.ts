@@ -6,9 +6,8 @@ import * as path from 'path';
 
 async function startServer() : Promise<void> {
     const server = new Server({authEnabled: false});
-    await server.initialize();
     await server.registerRoutesFromDirectory(path.resolve(__dirname, './api'));
-    await server.startServer(false);
+    await server.startServer();
     server.server.app.db = new DB();
 }
 
