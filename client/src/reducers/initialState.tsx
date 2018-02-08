@@ -1,7 +1,14 @@
 export default {
     test: {
-        counter: 1,
-        message: ''
+        message1: '',
+        message2: '',
+        message3: '',
+        message4: '',
+        message5: '',
+        message6: '',
+        message7: '',
+        message8: '',
+        testMessage: ''
     }
   };
   

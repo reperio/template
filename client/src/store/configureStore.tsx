@@ -6,16 +6,16 @@ import rootReducer from '../reducers';
 
 export const history = createHistory();
 
-function configureStore(initialState:object) {
+function configureStore(initialState?:object) {
     const reactRouterMiddleware = routerMiddleware(history);
     const middleware = [
         thunk,
         reactRouterMiddleware
     ];
 
-    return createStore(rootReducer, initialState, compose(
+    return createStore(rootReducer, (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(), compose(
         applyMiddleware(...middleware)
-    ));
+    ), );
 }
 
 export default configureStore;

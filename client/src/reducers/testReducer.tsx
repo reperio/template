@@ -11,7 +11,9 @@ export default function testReducer(state = initialState.test, action: any) {
 
   switch (action.type) {
     case TEST:
-      return Object.assign({}, state, {counter: state.counter + 1});
+      const newState:any = Object.assign({}, state);
+      newState[action.field] = action.message;
+      return newState;
 
     default:
       return state;

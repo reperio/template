@@ -2,22 +2,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, NavLink, Route } from 'react-router-dom';
-import {StatusPage, NotFoundPage, TestPage} from './components';
+import StatusPage from './components/statusPage';
+import NotFoundPage from './components/notFoundPage';
 
 class App extends React.Component {
   render() {
     const activeStyle = { color: 'red' };
     return (
       <div>
-        <div>
+        <div className="app-nav">
           <NavLink exact to="/" activeStyle={activeStyle}>Status</NavLink>
           <NavLink exact to="/test" activeStyle={activeStyle}>Test</NavLink>
         </div>
-        <Switch>
-          <Route exact path="/" component={StatusPage} />
-          <Route path="/test" component={TestPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
+        <div className="app-content">
+          <Switch>
+            <Route exact path="/" component={StatusPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
       </div>
     );
   }

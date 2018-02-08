@@ -5,9 +5,10 @@ import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import configureStore, { history } from './store/configureStore'
+import initialState from './reducers/initialState'
 import App from './app'
 
-const store = configureStore({});
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
