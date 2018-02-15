@@ -1,4 +1,5 @@
 import {Request} from 'hapi';
+import {Note} from '../../db/models/note';
 
 const routes = [
     {
@@ -12,16 +13,22 @@ const routes = [
         method: 'GET',
         path: '/notes',
         handler: async (req: Request, h: any) => {
-            const testRepository = req.server.app.db.testRepository();
-            return (await testRepository.getNotes()).map(n => n.text);
+            try {
+                const uow = await req.app.getNewUoW();
+                return (await uow.testRepository.getNotes()).map((n: Note) => n.text);
+            } catch(e) {
+                console.log(e);
+                return null;
+            }
         }
     },
     {
         method: 'POST',
         path: '/add-note',
         handler: async (req: Request, h: any) => {
-            const testRepository = req.server.app.db.testRepository();
-            return await testRepository.addNote(req.payload.note);
+            const uow = await req.app.getNewUoW();
+
+            return await uow.testRepository.addNote(req.payload.note);
         }
     }
 ];
