@@ -8,7 +8,11 @@ export default {
         message6: '',
         message7: '',
         message8: '',
-        testMessage: ''
+        testMessage: '',
+        testAsyncMessage: '',
+    }, note: {
+        noteToAdd: '',
+        noteList: ['first note', 'second note']
     }
   };
   

@@ -1,4 +1,4 @@
-import {TEST} from '../constants/actionTypes';
+import {TEST, TEST2} from '../constants/actionTypes';
 import initialState from './initialState';
 
 // IMPORTANT: Note that with Redux, state should NEVER be changed.
@@ -7,14 +7,15 @@ import initialState from './initialState';
 // Note that I'm using Object.assign to create a copy of current state
 // and update values on the copy.
 export default function testReducer(state = initialState.test, action: any) {
-  let newState;
+  let newState:any = Object.assign({}, state);
 
   switch (action.type) {
     case TEST:
-      const newState:any = Object.assign({}, state);
       newState[action.field] = action.message;
       return newState;
-
+    case TEST2:
+      newState[action.field] = action.message;
+      return newState;
     default:
       return state;
   }

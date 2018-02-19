@@ -8,9 +8,7 @@ class TestTextInputProperties {
     onChange: (e: any) => void;
 }
 
-//const TestTextInput = ({name, value, placeholder, onChange}) => {
 const TestTextInput = (properties: TestTextInputProperties) => {
-
     return (
         <div className="group">      
             <input 

@@ -1,6 +1,13 @@
 import fetch from 'node-fetch';
+import axios from 'axios'
 
 export class TestService {
+    async getTestMessage() : Promise<any> {
+        const result = await axios.get('/test.json');
+
+        return result;
+    }
+
     async getTestValue() : Promise<string> {
         const response = await fetch('http://localhost:3000/test');
         const json = await response.json();
