@@ -36,7 +36,7 @@ export class StatusPage extends React.Component{
                     <TestTextInput onChange={this.handleChange} name="message8" label="Message 8" value={this.props.test.message8} />
                 </div>
                 <div className="col-md-12">
-                    <input type="text" name="testMessage" value={this.props.test.testMessage} />
+                    <input type="text" name="testMessage" onChange={this.handleChange} value={this.props.test.testMessage} />
                 </div>
                 </form>
         </div>
