@@ -27,7 +27,6 @@ const routes = [
         path: '/add-note',
         handler: async (req: Request, h: any) => {
             const uow = await req.app.getNewUoW();
-
             return await uow.testRepository.addNote(req.payload.note);
         }
     }

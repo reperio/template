@@ -9,7 +9,7 @@ export class TestRepository {
     }
 
     async addNote(note: any) : Promise<Note> {
-        const noteModel = Note.fromJson(note);
+        const noteModel = Note.fromJson({text: note});
         return await Note.query(this.uow.transaction).insert(noteModel);
     }
 
