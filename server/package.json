@@ -2,8 +2,11 @@
   "name": "template",
   "version": "1.0.0",
   "description": "Project skeleton with the different frameworks required for our web services",
-  "main": "index.ts",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
+    "build": "tsc --allowJs false --declaration",
+    "start": "node ./dist",
     "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.spec.ts"
   },
   "author": "Seven Hills Technology",
