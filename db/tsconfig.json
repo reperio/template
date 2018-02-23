@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outFile": "./lib/index.js",
     "noImplicitAny": true,
-    "module": "amd",
+    "module": "system",
     "target": "esnext",
     "allowJs": true,
     "sourceMap": true,
