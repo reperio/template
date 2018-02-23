@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./lib/",
+    "outFile": "./lib/index.js",
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "esnext",
@@ -11,6 +11,13 @@
     "lib": ["es2015", "es2017"]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "Typings",
+    "test",
+    "coverage",
+    "lib"
+  ],
+  "include": [
+    "src"
   ]
 }

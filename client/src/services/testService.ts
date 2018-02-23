@@ -1,10 +1,9 @@
 import fetch from 'node-fetch';
-import axios from 'axios'
+import axios from 'axios';
 
 export class TestService {
     async getTestMessage() : Promise<any> {
         const result = await axios.get('/test.json');
-
         return result;
     }
 

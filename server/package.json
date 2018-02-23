@@ -6,7 +6,7 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc --allowJs false --declaration",
-    "start": "node ./dist",
+    "start": "node ./dist/index.js",
     "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.spec.ts"
   },
   "author": "Seven Hills Technology",
@@ -14,7 +14,8 @@
   "dependencies": {
     "@types/node": "^9.3.0",
     "hapijs-starter": "^2.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "reperio-example-db": "^1.0.0"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.46",
