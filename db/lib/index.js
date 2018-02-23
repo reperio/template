@@ -1,13 +1,44 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const db_starter_1 = require("db-starter");
-const testRepository_1 = require("./repositories/testRepository");
-const connect_1 = require("./connect");
-class UnitOfWork extends db_starter_1.BaseUnitOfWork {
-    constructor(logger) {
-        super(logger, connect_1.knex);
-        this.testRepository = new testRepository_1.TestRepository(this);
+module.exports = {
+    development: {
+        client: "postgresql",
+        connection: {
+            database: "sample",
+            user: "postgres",
+            password: "postgres"
+        },
+        migrations: {
+            tableName: "migrations"
+        }
+    },
+    staging: {
+        client: "postgresql",
+        connection: {
+            database: "sample",
+            user: "postgres",
+            password: "postgres"
+        },
+        pool: {
+            min: 2,
+            max: 10
+        },
+        migrations: {
+            tableName: "migrations"
+        }
+    },
+    production: {
+        client: "postgresql",
+        connection: {
+            database: "sample",
+            user: "postgres",
+            password: "postgres"
+        },
+        pool: {
+            min: 2,
+            max: 10
+        },
+        migrations: {
+            tableName: "migrations"
+        }
     }
-}
-exports.UnitOfWork = UnitOfWork;
+};
 //# sourceMappingURL=index.js.map

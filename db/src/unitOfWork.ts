@@ -1,9 +1,7 @@
 import {BaseUnitOfWork} from 'db-starter';
 import {TestRepository} from "./repositories/testRepository";
 import {Winston} from 'winston';
-import * as path from "path";
-import * as nconf from "nconf";
-import {knex, Model} from './connect';
+import {knex} from './connect';
 
 export class UnitOfWork extends BaseUnitOfWork {
     testRepository: TestRepository;

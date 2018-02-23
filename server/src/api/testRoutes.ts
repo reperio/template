@@ -1,5 +1,5 @@
 import {Request} from 'hapi';
-import {Note} from '../../db/models/note';
+import * as a from 'reperio-example-db';
 
 const routes = [
     {
