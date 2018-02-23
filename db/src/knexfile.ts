@@ -1,4 +1,4 @@
-module.exports = {
+const knex = {
 
   development: {
     client: "postgresql",
@@ -45,3 +45,5 @@ module.exports = {
   }
 
 };
+
+export default knex;
