@@ -1,5 +1,5 @@
 import { Note } from '../models/note';
-import { UnitOfWork } from "../index";
+import { UnitOfWork } from "../unitOfWork";
 export declare class TestRepository {
     uow: UnitOfWork;
     constructor(uow: UnitOfWork);

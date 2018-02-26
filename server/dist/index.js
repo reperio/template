@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-const db_1 = require("../db");
+const unitOfWork_1 = require("reperio-example-db/src/unitOfWork");
 const hapijs_starter_1 = require("hapijs-starter");
 const path = require("path");
 async function startServer() {
@@ -11,7 +11,7 @@ async function startServer() {
         method: async (request, h) => {
             request.app.uows = [];
             request.app.getNewUoW = async () => {
-                const uow = new db_1.UnitOfWork(server.app.logger);
+                const uow = new unitOfWork_1.UnitOfWork(server.app.logger);
                 request.app.uows.push(uow);
                 return uow;
             };
