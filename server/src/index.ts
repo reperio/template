@@ -1,6 +1,6 @@
 'use strict';
 
-import {UnitOfWork} from 'reperio-example-db';
+import {UnitOfWork} from 'reperio-example-db/src/unitOfWork';
 import {Server} from 'hapijs-starter';
 import * as path from 'path';
 

@@ -10,4 +10,4 @@ class UnitOfWork extends db_starter_1.BaseUnitOfWork {
     }
 }
 exports.UnitOfWork = UnitOfWork;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=unitOfWork.js.map

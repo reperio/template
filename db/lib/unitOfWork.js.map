@@ -1,0 +1,1 @@
+{"version":3,"file":"unitOfWork.js","sourceRoot":"","sources":["../src/unitOfWork.ts"],"names":[],"mappings":";;AAAA,2CAA0C;AAC1C,kEAA6D;AAE7D,uCAA+B;AAE/B,gBAAwB,SAAQ,2BAAc;IAG1C,YAAY,MAAe;QACvB,KAAK,CAAC,MAAM,EAAE,cAAI,CAAC,CAAC;QAEpB,IAAI,CAAC,cAAc,GAAG,IAAI,+BAAc,CAAC,IAAI,CAAC,CAAC;IACnD,CAAC;CACJ;AARD,gCAQC"}
