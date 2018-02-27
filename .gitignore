@@ -61,11 +61,6 @@ typings/
 .idea/workspace.xml
 .idea/tasks.xml
 
-# Plain JavaScript files
-*.js
-!db/migrations/*
-*.js.map
-
 # Package lock
 */package-lock.json
 
