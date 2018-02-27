@@ -1,22 +1,22 @@
-import {Request} from 'hapi';
-import {Note} from 'reperio-example-db/lib/models/note';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const routes = [
     {
         method: 'GET',
         path: '/test',
-        handler: async (req: Request, h: any) => {
-            return {test: 'This is a test.'};
+        handler: async (req, h) => {
+            return { test: 'This is a test.' };
         }
     },
     {
         method: 'GET',
         path: '/notes',
-        handler: async (req: Request, h: any) => {
+        handler: async (req, h) => {
             try {
                 const uow = await req.app.getNewUoW();
-                return (await uow.testRepository.getNotes()).map((n: Note) => n.text);
-            } catch(e) {
+                return (await uow.testRepository.getNotes()).map((n) => n.text);
+            }
+            catch (e) {
                 console.log(e);
                 return null;
             }
@@ -25,11 +25,11 @@ const routes = [
     {
         method: 'POST',
         path: '/add-note',
-        handler: async (req: Request, h: any) => {
+        handler: async (req, h) => {
             const uow = await req.app.getNewUoW();
             return await uow.testRepository.addNote(req.payload.note);
         }
     }
 ];
-
-export default routes;
+exports.default = routes;
+//# sourceMappingURL=testRoutes.js.map
