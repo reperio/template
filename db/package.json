@@ -5,7 +5,7 @@
   "main": "./lib/unitOfWork.js",
   "typings": "./lib/unitOfWork.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp -r config lib/config",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Seven Hills Technology",
