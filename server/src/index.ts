@@ -1,8 +1,7 @@
-'use strict';
-
-import {UnitOfWork} from 'reperio-example-db/src/unitOfWork';
+import {UnitOfWork} from 'reperio-example-db/lib/unitOfWork';
 import {Server} from 'hapijs-starter';
 import * as path from 'path';
+import {Request} from 'hapi';
 
 async function startServer() : Promise<void> {
     const server = new Server({authEnabled: false});
@@ -10,7 +9,7 @@ async function startServer() : Promise<void> {
 
     await server.registerExtension({
         type: 'onRequest',
-        method: async (request, h) => {
+        method: async (request: Request, h: any) => {
             request.app.uows = [];
 
             request.app.getNewUoW = async () => {

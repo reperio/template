@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const unitOfWork_1 = require("reperio-example-db/src/unitOfWork");
+const unitOfWork_1 = require("reperio-example-db/lib/unitOfWork");
 const hapijs_starter_1 = require("hapijs-starter");
 const path = require("path");
 async function startServer() {
