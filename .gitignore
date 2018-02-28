@@ -62,7 +62,7 @@ typings/
 .idea/tasks.xml
 
 # Plain JavaScript files
-*.js
+
 !db/migrations/*
 *.js.map
 
