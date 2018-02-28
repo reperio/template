@@ -66,4 +66,7 @@ typings/
 
 .DS_Store
 
-dist
+# Build folders
+server/dist
+db/lib
+client/dist
