@@ -65,3 +65,8 @@ typings/
 */package-lock.json
 
 .DS_Store
+
+# Build folders
+server/dist
+db/lib
+client/dist
