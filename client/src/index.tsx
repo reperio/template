@@ -7,6 +7,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import configureStore, { history } from './store/configureStore'
 import initialState from './reducers/initialState'
 import App from './app'
+import './styles/app.scss'
 
 const store = configureStore();
 

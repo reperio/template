@@ -6,7 +6,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
     entry: [
-        'core-js',
         './src/index.tsx'
     ],
     devtool: 'inline-source-map',
@@ -20,6 +19,14 @@ const config = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(s*)css$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            { 
+                test: /\.(png|gif|jpg|cur)$/i, 
+                loader: 'url-loader', options: { limit: 8192 } 
             }
         ]
     },
