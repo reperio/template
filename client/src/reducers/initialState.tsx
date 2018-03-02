@@ -11,6 +11,7 @@ export default {
         testMessage: '',
         testAsyncMessage: '',
     }, note: {
+        test: '',
         noteToAdd: '',
         noteList: ['first note', 'second note']
     }

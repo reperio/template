@@ -27,6 +27,7 @@ export class TestPage extends React.Component {
                 {/* <input type="text" value={this.state.noteToAdd} onChange={this.handleChange.bind(this)} /> */}
                 <TestTextInput onChange={this.handleChange} name="noteToAdd" label="Add Note" value={this.props.notes.noteToAdd} />
                 <button onClick={this.addNote}>Add note</button>
+                <input type="text" value={this.props.notes.test} name="test" onChange={this.handleChange}/>
                 {this.props.notes.noteList.map((n:string, index:number) => <p key={index}>{n}</p>)}
             </div>
         );

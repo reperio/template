@@ -16,7 +16,7 @@ export class StatusPage extends React.Component {
     }
 
     handleClick = (e:any) => {
-        this.props.actions.test2();
+        this.props.actions.test2('test', 123);
     }
 
     render() {
