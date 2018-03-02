@@ -24,9 +24,9 @@ const config = {
                 test: /\.(s*)css$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
-            { 
-                test: /\.(png|gif|jpg|cur)$/i, 
-                loader: 'url-loader', options: { limit: 8192 } 
+            {
+                test: /\.(png|gif|jpg|cur)$/i,
+                loader: 'url-loader', options: { limit: 8192 }
             }
         ]
     },
