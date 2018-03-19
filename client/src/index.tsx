@@ -8,6 +8,7 @@ import configureStore, { history } from './store/configureStore'
 import initialState from './reducers/initialState'
 import App from './app'
 import './styles/app.scss'
+import manifest from '!!file?publicPath=/&name=manifest.json!./manifest.json';
 
 const store = configureStore();
 

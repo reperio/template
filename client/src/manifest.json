@@ -1,0 +1,41 @@
+{
+    "icons": [
+      {
+        "src": "icon_512x512.c255353b0fab4ad53044f000543d35b4.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "icon_384x384.6c65097c7416e48b29bdfce714ddbef8.png",
+        "sizes": "384x384",
+        "type": "image/png"
+      },
+      {
+        "src": "icon_256x256.a64ab6280e2e9ced0462b093e2b23aa7.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      },
+      {
+        "src": "icon_192x192.525a3d0cffeee7f4431213b4dc4f9881.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "icon_128x128.c3582a3b69e41934f52a6c00b7e1eb16.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      },
+      {
+        "src": "icon_96x96.dcc499a43f5d701645bba6247a05d615.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      }
+    ],
+    "name": "Template",
+    "short_name": "Template",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url": ".",
+    "description": "Template Progressive Web App!",
+    "background_color": "#ff0000"
+  }

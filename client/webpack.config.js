@@ -3,6 +3,7 @@ exports.__esModule = true;
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const config = {
     entry: [
@@ -42,7 +43,20 @@ const config = {
             },
             inject: true
         }),
-        new CopyWebpackPlugin(['./src/test.json'], {debug: 'info'})
+        new CopyWebpackPlugin(['./src/test.json'], { debug: 'info' }),
+        new WebpackPwaManifest({
+            name: 'Template',
+            short_name: 'Template',
+            description: 'Template Progressive Web App!',
+            background_color: '#ff0000',
+            theme_color: '#ff0000',
+            icons: [
+                {
+                    src: path.resolve('src/assets/logo-icon.png'),
+                    sizes: [96, 128, 192, 256, 384, 512]
+                }
+            ]
+        })
     ]
 };
 module.exports = config;
