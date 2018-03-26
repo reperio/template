@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@types/react-bootstrap": "^0.32.6",
+    "@types/redux-form": "^7.2.2",
     "axios": "^0.17.1",
     "core-js": "^2.5.3",
     "enzyme": "^3.3.0",
@@ -12,11 +14,13 @@
     "node-fetch": "^1.7.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {

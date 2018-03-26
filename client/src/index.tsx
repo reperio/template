@@ -4,18 +4,32 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
-import configureStore, { history } from './store/configureStore'
 import initialState from './reducers/initialState'
 import App from './app'
 import './styles/app.scss'
+import { store } from "./store/store"
+import { history } from "./store/history"
 
-const store = configureStore();
+async function load() {
+  try {
+      const authToken = window.localStorage.getItem("authToken");
+      if (authToken != null) {
+          await authActions.setAuthToken(authToken, true)(store.dispatch);
+      }
+  } catch (e) {
+      if (e.response == null || (e.response.status !== 401 && e.response.status !== 403)) {
+          console.error("An error occurred while trying to get the logged in user from the saved auth token", e);
+      }
+  }
 
-ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App/>
-    </ConnectedRouter>
-  </Provider>,
-  document.getElementById('root')
-)
+  ReactDOM.render(
+      <Provider store={store}>
+          <ConnectedRouter history={history}>
+              <App/>
+          </ConnectedRouter>
+      </Provider>,
+      document.getElementById('root')
+  );
+}
+
+load();
