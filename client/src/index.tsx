@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
-import initialState from './reducers/initialState'
 import App from './app'
 import './styles/app.scss'
 import { store } from "./store/store"
 import { history } from "./store/history"
+import * as authActions from "./actions/authActions";
 
 async function load() {
   try {
