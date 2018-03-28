@@ -21,15 +21,30 @@
         .app-main {
             display: flex;
             flex-direction: row;
+
+            .app-sidebar {
+                background-color: $dark1
+            }
         }
     }
 
     .app-footer {
+        flex: 0 1 auto;
         height: 40px;
         background-color: $primary-color;
         width: 100%;
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
