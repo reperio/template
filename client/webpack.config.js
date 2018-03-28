@@ -1,17 +1,12 @@
-'use strict';
-exports.__esModule = true;
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
-const config = {
-    entry: [
-        './src/index.tsx'
-    ],
-    devtool: 'inline-source-map',
+module.exports = {
+    entry: './src/index.tsx',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'index.js',
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
@@ -31,7 +26,7 @@ const config = {
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.jsx', '.js']
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -42,7 +37,8 @@ const config = {
             },
             inject: true
         }),
-        new CopyWebpackPlugin(['./src/test.json'], {debug: 'info'})
+        new webpack.DefinePlugin({
+            API_URL: JSON.stringify(process.env.API_URL || 'http://localhost:8000/api')
+        })
     ]
 };
-module.exports = config;

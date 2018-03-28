@@ -6,12 +6,10 @@ import NavMenuLoginLink from "./navMenuLoginLink";
 import NavMenuLogOutLinkContainer from "../../containers/navMenuLogOutLinkContainer";
 
 const NavMenu = (props: any) => (
-    <Navbar>
-        <Nav>
-            {props.authSession.isAuthenticated ? <LinkContainer to="/home"><NavItem>Home</NavItem></LinkContainer> : null}
-            {props.authSession.isAuthenticated ? <NavMenuLogOutLinkContainer/> : <NavMenuLoginLink/>}
-        </Nav>
-    </Navbar>
+    <div>
+        {props.authSession.isAuthenticated ? <LinkContainer to="/home"><NavItem>Home</NavItem></LinkContainer> : null}
+        {props.authSession.isAuthenticated ? <NavMenuLogOutLinkContainer/> : <NavMenuLoginLink/>}
+    </div>
 );
 
 export default NavMenu;
