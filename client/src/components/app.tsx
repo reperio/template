@@ -5,13 +5,14 @@ import Routes from "./routes";
 
 const App = () => (
     <div className="app-main">
-        <div className="app-sidebar">
-            <NavMenuContainer/>
-        </div>
-        <div className="app-content">
-            <Routes/>
-        </div>
+        <NavMenuContainer/>
+        <Routes/>
     </div>
 );
 
 export default App;
+
+
+
+
+

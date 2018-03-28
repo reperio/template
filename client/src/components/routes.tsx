@@ -8,7 +8,7 @@ import PublicRouteContainer from "../containers/publicRouteContainer";
 import MainDashboardContainer from "../containers/mainDashboardContainer";
 
 const Routes = () => (
-    <div style={{backgroundColor: "white", padding: "15px"}}>
+    <div className="app-content">
         <Switch>
             <PrivateRouteContainer exact path="/home" component={MainDashboardContainer} />
             <PublicRouteContainer exact path="/login" component={LoginFormContainer} />
