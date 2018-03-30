@@ -3,7 +3,7 @@ import {NavItem} from "react-bootstrap";
 
 const NavMenuLogOutLink = (props: any) => (
     <NavItem onClick={props.logout}>
-        Log out
+        <i className="fa fa-sign-out fa-lg"></i> Log Out
     </NavItem>
 );
 

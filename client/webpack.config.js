@@ -38,7 +38,7 @@ module.exports = {
             inject: true
         }),
         new webpack.DefinePlugin({
-            API_URL: JSON.stringify(process.env.API_URL || 'http://localhost:8000/api')
+            API_URL: JSON.stringify(process.env.API_URL || 'http://localhost:3000/api')
         })
     ]
 };

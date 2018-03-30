@@ -1,6 +1,7 @@
 import React from 'react'
 import {MenuItem, Nav, Navbar, NavDropdown, NavItem} from "react-bootstrap";
 import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
+import { NavLink } from 'react-router-dom';
 
 import NavMenuLoginLink from "./navMenuLoginLink";
 import NavMenuLogOutLinkContainer from "../../containers/navMenuLogOutLinkContainer";
@@ -14,29 +15,19 @@ const NavMenu = (props: any) => (
                 <div className="menu-list">
         
                     <ul id="menu-content" className="menu-content collapse out">
+                    {props.authSession.isAuthenticated ?  
                         <li>
-                            <a href="#">
-                                <i className="fa fa-dashboard fa-lg"></i> Dashboard
-                            </a>
-                        </li>
+                            <NavLink exact className="app-navlink" to="/home">
+                                <i className="fa fa-home fa-lg"></i> Home
+                            </NavLink>
+                        </li> : null 
+                    }
 
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-dashboard fa-lg"></i> Dashboard
-                            </a>
-                        </li>
+                        
 
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-dashboard fa-lg"></i> Dashboard
-                            </a>
-                        </li>
+                        {props.authSession.isAuthenticated ? <NavMenuLogOutLinkContainer/> : <NavMenuLoginLink/>}
 
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-dashboard fa-lg"></i> Dashboard
-                            </a>
-                        </li>
+                        
                         
                     </ul>
             </div>

@@ -2,7 +2,7 @@ import { axios } from "./axiosService";
 
 class AuthService {
     async login(email: string, password: string) {
-        return await axios.post(`/auth`, {email, password});
+        return await axios.post(`/auth/login`, {email, password});
     }
 
     parseJwt(token: string): any {

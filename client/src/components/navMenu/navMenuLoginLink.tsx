@@ -5,7 +5,7 @@ import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
 const NavMenuLoginLink = () => (
     <LinkContainer to="/login">
         <NavItem>
-            Login
+            <i className="fa fa-lock fa-lg"></i> Login
         </NavItem>
     </LinkContainer>
 );
