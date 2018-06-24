@@ -1,24 +1,32 @@
-import {Dispatch} from "react-redux";
+import { Dispatch } from "react-redux";
 
 import { authService } from "../services/authService";
 import { userService } from "../services/userService";
+import { inputValidationService } from "../services/inputValidationService";
+import { history } from '../store/history';
+var Joi = require('joi-browser');
+import { change } from 'redux-form';
+import { locationChange } from '../actions/navActions';
+import UserModel from "../models/userModel";
+
 
 export const authActionTypes = {
-    AUTH_LOGIN_PENDING: "AUTH_LOGIN_PENDING",
-    AUTH_LOGIN_SUCCESSFUL: "AUTH_LOGIN_SUCCESSFUL",
+    AUTH_LOGIN_START: "AUTH_LOGIN_START",
+    AUTH_LOGIN_END: "AUTH_LOGIN_END",
     AUTH_LOGIN_ERROR: "AUTH_LOGIN_ERROR",
     AUTH_SET_TOKEN: "AUTH_SET_TOKEN",
-    AUTH_CLEAR_TOKEN: "AUTH_CLEAR_TOKEN"
+    AUTH_CLEAR_TOKEN: "AUTH_CLEAR_TOKEN",
+    AUTH_SESSION_EXTEND: "AUTH_SESSION_EXTEND"
 };
 
-function getErrorMessageFromStatusCode(statusCode: number) {
-    switch (statusCode) {
-        case 400:
-        case 401:
-        case 403:
-            return "Invalid username or password";
-        default:
-            return "An error occurred, please contact your system administrator"}
+export const extendSession = () => async(dispatch: Dispatch<any>) => {
+    hideExpirationDialog()(dispatch);
+
+    dispatch({
+        type: authActionTypes.AUTH_SESSION_EXTEND
+    });
+
+    authService.getIsLoggedIn();
 }
 
 export const logout = () => async (dispatch: Dispatch<any>) => {
@@ -27,20 +35,36 @@ export const logout = () => async (dispatch: Dispatch<any>) => {
         type: authActionTypes.AUTH_CLEAR_TOKEN,
         payload: null
     });
+    history.push('/login');
+    locationChange(history.location.pathname)(dispatch);
 };
 
-export const getAuthToken = () => {
-    return window.localStorage.getItem("authToken");
-};
+export const updateTimeLeftOnToken = (showingExpirationDialog: boolean) => async(dispatch: Dispatch<any>) => {
+    const tokenExpirationDate = authService.getTokenExpirationDate();
+    if (tokenExpirationDate != null) {
+        const time = Math.round((new Date()).getTime() / 1000);
+        let diff = tokenExpirationDate - time;
+
+        if (diff <= 0) {
+            dispatch(change('navMenu', 'showingExpirationDialog', false));
+            logout()(dispatch);
+        } else if (diff < 60) {
+            if (!showingExpirationDialog) {
+                dispatch(change('navMenu', 'showingExpirationDialog', true));
+            }
+            dispatch(change('navMenu', 'timeLeftOnToken', diff--));
+        }
+    }
+}
 
 export const setAuthToken = (authToken: string, forceActionDispatch = false) => async (dispatch: Dispatch<any>) => {
     const parsedToken = authToken == null ? null : authService.parseJwt(authToken);
-    const oldAuthToken = getAuthToken();
+    const oldAuthToken = authService.readToken()
     const oldParsedToken = oldAuthToken == null ? null : authService.parseJwt(oldAuthToken);
-    if (parsedToken != null && Math.round((new Date()).getTime() / 1000) < parsedToken.exp) {
+    if (parsedToken != null && !authService.hasTokenExpired(parsedToken.exp)) {
         window.localStorage.setItem("authToken", authToken);
         if (forceActionDispatch || oldParsedToken == null || oldParsedToken.currentUserId !== parsedToken.currentUserId) {
-            const {data: user} = await userService.getUserById(parsedToken.currentUserId);
+            const user:UserModel = (await userService.getUserById(parsedToken.currentUserId)).data;
             dispatch({
                 type: authActionTypes.AUTH_SET_TOKEN,
                 payload: {authToken, user}
@@ -52,31 +76,42 @@ export const setAuthToken = (authToken: string, forceActionDispatch = false) => 
                 type: authActionTypes.AUTH_CLEAR_TOKEN,
                 payload: null
             });
+            history.push('/login');
         }
     }
 };
 
-export const setAuth = (user: any) => async (dispatch: Dispatch<any>) => {
-    dispatch({
-        type: authActionTypes.AUTH_LOGIN_SUCCESSFUL,
-        payload: {user}
-    });
-};
+export const hideExpirationDialog = () => async (dispatch: Dispatch<any>) => { 
+    dispatch(change('navMenu', 'showingExpirationDialog', false));
+}
 
 export const submitAuth = (email: string, password: string) => async (dispatch: Dispatch<any>) => {
-    dispatch({
-        type: authActionTypes.AUTH_LOGIN_PENDING,
-        payload: {}
-    });
+    
+    const schema = Joi.object().keys({
+        password: Joi.string().required().label('Password'),
+        email: Joi.string().email().required().label('Email')
+    }).options({ abortEarly: false });
 
-    try {
-        await authService.login(email, password);
-    } catch (e) {
+    const errors = await inputValidationService.validate({password, email}, schema);
+
+    dispatch(change('loginForm', 'errorMessages', errors));
+
+    if (errors.length == 0) {
         dispatch({
-            type: authActionTypes.AUTH_LOGIN_ERROR,
-            payload: {
-                message: getErrorMessageFromStatusCode(e.response != null ? e.response.status : null)
-            }
+            type: authActionTypes.AUTH_LOGIN_START
         });
+    
+        try {
+            await authService.login(email, password);
+
+            history.push('/home');
+            locationChange(history.location.pathname)(dispatch);
+        } catch (e) {
+            dispatch(change('loginForm', 'errorMessages', [e.response.data.message]));
+
+            dispatch({
+                type: authActionTypes.AUTH_LOGIN_ERROR
+            });
+        }
     }
 };

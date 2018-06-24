@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import PublicRoute from "../components/routeHelperComponents/publicRoute";
+import PublicRoute from "../../components/route/routeHelperComponents/publicRoute";
 
 class PublicRouteContainer extends React.Component {
     props: any;

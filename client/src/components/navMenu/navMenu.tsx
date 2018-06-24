@@ -1,42 +1,55 @@
 import React from 'react'
-import {MenuItem, Nav, Navbar, NavDropdown, NavItem} from "react-bootstrap";
-import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
-import { NavLink } from 'react-router-dom';
-
-import NavMenuLoginLink from "./navMenuLoginLink";
-import NavMenuLogOutLinkContainer from "../../containers/navMenuLogOutLinkContainer";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import ReperioBar from '../misc/reperioBar';
+import ReperioBarContainer from '../../containers/misc/reperioBarContainer';
+const reperio = require('../../assets/reperio-rAsset-31.png');
 
 const NavMenu = (props: any) => (
-    <div className="app-sidebar">
-        <div className="nav-side-menu">
-            <div className="brand">Brand Logo</div>
-            <i className="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        
-                <div className="menu-list">
-        
-                    <ul id="menu-content" className="menu-content collapse out">
-                    {props.authSession.isAuthenticated ?  
-                        <li>
-                            <NavLink exact className="app-navlink" to="/home">
-                                <i className="fa fa-home fa-lg"></i> Home
-                            </NavLink>
-                        </li> : null 
-                    }
+    <div className="nav-menu-container">
+        <Navbar>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <img className="r-menu-header-icon" src={reperio}/>
+                </Navbar.Brand>
+            </Navbar.Header>
+            <Nav>
+                {props.authSession.isAuthenticated ? 
+                    <LinkContainer activeClassName="active" className='r-menu-item' to="/home">
+                        <NavItem onClick={() => props.navigateTo('/home')}>Home</NavItem>
+                    </LinkContainer>
+                    : null}
 
-                        
+                {props.authSession.isAuthenticated ? 
+                    <LinkContainer activeClassName="active" className='r-menu-item' to="/virtual-machines">
+                        <NavItem onClick={() => props.navigateTo('/virtual-machines')}>Virtual Machines</NavItem>
+                    </LinkContainer>
+                    : null}
 
-                        {props.authSession.isAuthenticated ? <NavMenuLogOutLinkContainer/> : <NavMenuLoginLink/>}
+                {props.authSession.isAuthenticated ? 
+                    <LinkContainer activeClassName="active" className='r-menu-item' to="/networks">
+                        <NavItem onClick={() => props.navigateTo('/networks')}>Networks</NavItem>
+                    </LinkContainer>
+                    : null}
 
-                        
-                        
-                    </ul>
-            </div>
-        </div>
+                    {props.authSession.isAuthenticated ? 
+                    <LinkContainer activeClassName="active" className='r-menu-item' to="/edit-account">
+                        <NavItem onClick={() => props.navigateTo('/edit-account')}>Account</NavItem>
+                    </LinkContainer>
+                    : null}
+
+                {props.authSession.isAuthenticated ?
+                    <NavItem onClick={props.logout} className="r-menu-item">Log out</NavItem>
+                :
+                    <LinkContainer activeClassName="active" className='r-menu-item' to="/login">
+                        <NavItem onClick={() => props.navigateTo('/login')}>Login</NavItem>
+                    </LinkContainer>
+                }
+            </Nav>
+        </Navbar>
+        <ReperioBarContainer />
     </div>
-    // <div>
-    //     {props.authSession.isAuthenticated ? <LinkContainer to="/home"><NavItem>Home</NavItem></LinkContainer> : null}
-    //     {props.authSession.isAuthenticated ? <NavMenuLogOutLinkContainer/> : <NavMenuLoginLink/>}
-    // </div>
+    
 );
 
 export default NavMenu;

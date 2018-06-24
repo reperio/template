@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import PrivateRoute from "../components/routeHelperComponents/privateRoute";
+import PrivateRoute from "../../components/route/routeHelperComponents/privateRoute";
 
 class PrivateRouteContainer extends React.Component {
     props: any;
