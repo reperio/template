@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { authService } from '../../services/authService';
-import { extendSession, logout, hideExpirationDialog, updateTimeLeftOnToken } from '../../actions/authActions';
 import { locationChange } from '../../actions/navActions';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { FlatButton, Dialog } from 'material-ui';
@@ -17,19 +15,6 @@ class NavMenuContainer extends React.Component {
 
     async componentDidMount() {
         this.props.actions.locationChange(history.location.pathname);
-        let interval: number = window.setInterval(() => {
-            this.props.actions.updateTimeLeftOnToken(this.props.showingExpirationDialog);
-         }, 1000);
-    }
-
-    logout() {
-        this.props.actions.hideExpirationDialog();
-        this.props.actions.logout();
-    }
-
-    extendSession() {
-        this.props.actions.hideExpirationDialog();
-        this.props.actions.extendSession();
     }
 
     navigateTo(destination: string) {
@@ -42,11 +27,9 @@ class NavMenuContainer extends React.Component {
                 <MuiThemeProvider>
                     <Dialog actions={[    
                         <FlatButton label="Log out"
-                                    primary={true}
-                                    onClick={this.logout.bind(this)}/>,
+                                    primary={true}/>,
                         <FlatButton label="Extend session"
                                     primary={true}
-                                    onClick={this.extendSession.bind(this)}
                                     type="submit"/> ]}
                             title={`Your session will expire in ${this.props.timeLeftOnToken}`}
                             modal={true}
@@ -54,7 +37,7 @@ class NavMenuContainer extends React.Component {
                     </Dialog>
                 </MuiThemeProvider>
 
-                <NavMenu logout={this.logout.bind(this)} navigateTo={this.navigateTo.bind(this)} location={this.props.location} authSession={this.props.authSession} />
+                <NavMenu navigateTo={this.navigateTo.bind(this)} location={this.props.location} authSession={this.props.authSession} />
             </div>
         );
     }
@@ -74,10 +57,6 @@ function mapStateToProps(state: any) {
 function mapActionToProps(dispatch: any) {
     return {
         actions: bindActionCreators({
-            extendSession, 
-            logout,
-            hideExpirationDialog,
-            updateTimeLeftOnToken,
             locationChange
         }, dispatch)
     };

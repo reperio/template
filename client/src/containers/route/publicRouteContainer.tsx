@@ -7,7 +7,7 @@ class PublicRouteContainer extends React.Component {
 
     render() {
         return (
-            <PublicRoute isAuthenticated={this.props.authSession.isAuthenticated} {...this.props} />
+            <PublicRoute {...this.props} />
         );
     }
 }

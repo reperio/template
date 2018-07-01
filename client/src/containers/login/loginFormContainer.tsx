@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { submitAuth } from "../../actions/authActions";
 import { locationChange } from "../../actions/navActions";
 import { bindActionCreators } from "redux";
 import LoginForm from "../../components/login/loginForm";
@@ -56,7 +55,7 @@ function mapStateToProps(state: any) {
 
 function mapActionToProps(dispatch: any) {
     return {
-        actions: bindActionCreators({submitAuth, locationChange, toggleLoadingBar}, dispatch)
+        actions: bindActionCreators({function() {}, locationChange, toggleLoadingBar}, dispatch)
     };
 }
 

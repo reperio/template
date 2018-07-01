@@ -1,7 +1,3 @@
-import VirtualMachineModel from "../models/virtualMachineModel";
-import NetworkModel from "../models/networkModel";
-import UserModel from "../models/userModel";
-import PackageModel from "../models/packageModel";
 import ReactTableOptionsModel from "../models/reactTableOptionsModel";
 
 export class State {
@@ -13,7 +9,7 @@ export class State {
 
 export class StateAuthSession {
     isAuthenticated: boolean;
-    user: UserModel;
+    user: null;
     isLoading: boolean;
 }
 
@@ -27,7 +23,7 @@ export class StateAccountEdit {
 
 export class StateAccount {
     isLoading: boolean;
-    user: UserModel;
+    user: null;
 }
 
 export const initialState: State = {

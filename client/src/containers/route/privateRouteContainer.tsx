@@ -7,7 +7,7 @@ class PrivateRouteContainer extends React.Component {
 
     render() {
         return (
-            <PrivateRoute isAuthenticated={this.props.authSession.isAuthenticated} {...this.props} />
+            <PrivateRoute {...this.props} />
         );
     }
 }

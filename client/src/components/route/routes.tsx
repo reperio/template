@@ -6,8 +6,6 @@ import LoginFormContainer from "../../containers/login/loginFormContainer";
 import PrivateRouteContainer from "../../containers/route/privateRouteContainer";
 import PublicRouteContainer from "../../containers/route/publicRouteContainer";
 import MainDashboardContainer from "../../containers/main/mainDashboardContainer";
-import AccountCreateFormContainer from '../../containers/account/accountCreateFormContainer';
-import AccountEditFormContainer from '../../containers/account/accountEditFormContainer';
 import ScratchPadContainer from '../../containers/scratchPad/scratchPadContainer';
 
 const Routes = (props: any) => (
@@ -15,8 +13,6 @@ const Routes = (props: any) => (
         <Switch>
             <PublicRouteContainer exact path="/login" component={LoginFormContainer} />
             <PrivateRouteContainer exact path="/home" component={MainDashboardContainer} />
-            <PublicRouteContainer exact path="/create-account" component={AccountCreateFormContainer} />
-            <PrivateRouteContainer exact path="/edit-account" component={AccountEditFormContainer} />
             <PublicRouteContainer exact path="/scratch" component={ScratchPadContainer} />
             <Route>
                 <Redirect to="/home"/>

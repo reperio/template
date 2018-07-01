@@ -6,22 +6,8 @@ import "./styles/app.scss"
 import { store } from "./store/store"
 import { history } from "./store/history"
 import App from './app'
-import * as authActions from "./actions/authActions";
 
 async function load() {
-    try {
-        const authToken = window.localStorage.getItem("authToken");
-        if (authToken != null) {
-            await authActions.setAuthToken(authToken, true)(store.dispatch);
-        }
-        else {
-            authActions.logout();
-        }
-    } catch (e) {
-        if (e.response == null || (e.response.status !== 401 && e.response.status !== 403)) {
-            console.error("An error occurred while trying to get the logged in user from the saved auth token", e);
-        }
-    }
 
     ReactDOM.render(
         <Provider store={store}>
