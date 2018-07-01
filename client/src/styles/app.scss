@@ -276,6 +276,7 @@ h2, h3 {
 .row {
   margin-left: 0px;
   margin-right: 0px;
+  margin-bottom: 20px;
 }
 
 .table-row-container {
@@ -399,102 +400,84 @@ hr {
   }
 }
 
-.#{$namespace}-warning {
+.#{$namespace}-danger {
   color: $reperio-red !important;
-  border: solid $reperio-red !important;
-  border-width: 0 0 5 0 !important;
-  box-shadow: 0px 0px 1px 1px rgba($reperio-red, 0.5);
+  border-color: $reperio-red !important;
   &:hover {
     color: white !important;
     background-color: $reperio-red !important;
     border-color: $reperio-red !important;
-    border-width: 0 0 5 0 !important;
   }
   &:active {
     color: white !important;
     background-color: $reperio-dark-red !important;
-    border: solid $reperio-dark-red !important;
-    border-width: 0 0 5 0 !important;
+    border-color: $reperio-dark-red !important;
   }
   &:focus{
     outline: transparent;
     background-color: $reperio-dark-red !important;
-    border: solid $reperio-dark-red !important;
+    border-color: $reperio-dark-red !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
   &:disabled {
     outline: transparent;
     background-color: $reperio-disabled-red !important;
-    border: solid $reperio-disabled-red !important;
+    border-color: $reperio-disabled-red !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
 }
 
 .#{$namespace}-success {
   color: $reperio-teal !important;
-  border: solid $reperio-teal !important;
-  border-width: 0 0 5 0 !important;
-  box-shadow: 0px 0px 1px 1px rgba($reperio-teal, 0.5);
+  border-color: $reperio-teal !important;
   &:hover {
     color: white !important;
     background-color: $reperio-teal !important;
     border-color: $reperio-teal !important;
-    border-width: 0 0 5 0 !important;
   }
   &:active {
     color: white !important;
     background-color: $reperio-dark-teal !important;
-    border: solid $reperio-dark-teal !important;
-    border-width: 0 0 5 0 !important;
+    border-color: $reperio-dark-teal !important;
   }
   &:focus{
     outline: transparent;
     background-color: $reperio-dark-teal !important;
-    border: solid $reperio-dark-teal !important;
+    border-color: $reperio-dark-teal !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
   &:disabled {
     outline: transparent;
     background-color: $reperio-disabled-teal !important;
-    border: solid $reperio-disabled-teal !important;
+    border-color: $reperio-disabled-teal !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
 }
 
 .#{$namespace}-cancel {
   color: $reperio-charcoal !important;
-  border: solid $reperio-charcoal !important;
-  border-width: 0 0 5 0 !important;
-  box-shadow: 0px 0px 1px 1px rgba($reperio-charcoal, 0.5);
+  border-color: $reperio-charcoal !important;
   &:hover {
     color: white !important;
     background-color: $reperio-charcoal !important;
     border-color: $reperio-charcoal !important;
-    border-width: 0 0 5 0 !important;
   }
   &:active {
     color: white !important;
     background-color: $reperio-dark-charcoal !important;
-    border: solid $reperio-dark-charcoal !important;
-    border-width: 0 0 5 0 !important;
+    border-color: $reperio-dark-charcoal !important;
   }
   &:focus{
     outline: transparent;
     background-color: $reperio-dark-charcoal !important;
-    border: solid $reperio-dark-charcoal !important;
+    border-color: $reperio-dark-charcoal !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
   &:disabled {
     outline: transparent;
     background-color: $reperio-disabled-charcoal !important;
-    border: solid $reperio-disabled-charcoal !important;
+    border-color: $reperio-disabled-charcoal !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
 }
 
