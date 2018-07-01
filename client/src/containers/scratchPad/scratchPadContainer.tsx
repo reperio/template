@@ -1,10 +1,25 @@
 import React from 'react'
-import {Field} from 'redux-form'
+import Select from 'react-select';
+
 
 class ScratchPadContainer extends React.Component {
     props: any;
+    
+    state = {
+        selectedOption: '',
+    }
+
+    handleChange = (selectedOption: any) => {
+        this.setState({ selectedOption });
+        // selectedOption can be null when the `x` (close) button is clicked
+        if (selectedOption) {
+            console.log(`Selected: ${selectedOption.label}`);
+        }
+    }
 
     render() {
+        const { selectedOption } = this.state;
+
         return (
             <div>
                 <div className="col-md-6">
@@ -115,10 +130,14 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Dropdowns</div>
                             <div>
-                                <select name="tstSel" className="r-form-control r-dropdown">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </select>
+                                <Select
+                                    className="r-form-control r-dropdown"
+                                    value={selectedOption}
+                                    onChange={this.handleChange}
+                                    options={[
+                                        {value: 1, label: '1'},
+                                        {value: 2, label: 'Option 2'}
+                                    ]} />
                             </div>
                         </div>
                     </div>
