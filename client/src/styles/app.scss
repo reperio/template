@@ -369,7 +369,7 @@ hr {
     border-width: 0.5 0.5 5 0.5 !important;
     border-style: solid;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
-    min-height: 48px;
+    min-height: $min-input-height;
     transition: 0.25s;
     font: 16px/1.5em 'Nunito Sans', sans-serif;
     font-weight: lighter;
@@ -487,7 +487,7 @@ hr {
     width: 100%;
     border-color: $reperio-input-border;
     border-bottom-width: 0.5px !important;
-    padding-bottom: 5px;
+    padding-bottom: 4.5px;
     font: 16px/1.5em 'Nunito Sans', sans-serif;
     font-weight: lighter;
     &:focus-within {
@@ -508,24 +508,22 @@ hr {
     }
 }
 
-.#{$namespace}-anchor {
-    color: rgba(66, 133, 195, 1);
-    text-decoration: none;
-    &:hover {
-        color: rgba(45, 88, 128, 1);
-        text-decoration: none;
-    }
-}
-
 .#{$namespace}-dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 100%;
-    border-color: white;
-    padding-bottom: 0px;
-    cursor: pointer;
+    font: 16px/1.5em 'Nunito Sans', sans-serif;
+    font-weight: lighter;
+    background-color: #fff;
+    border-color: $reperio-input-border;
+    border-bottom-width: 0.5px !important;
+    padding-bottom: 4.5px;
     &:focus-within {
         color: $reperio-blue;
-        border: solid $reperio-blue;
-        box-shadow: 0px 0px 5px 0px rgba($reperio-blue, 0.7);
+        padding-bottom: 0;
+        border-bottom-width: 5px !important;
+        border-color: $reperio-blue;
         outline: transparent !important;
     }
     >option {
@@ -538,6 +536,40 @@ hr {
         outline: transparent !important;
         border: solid rgba(0, 0, 0, 0.2) 1px !important;
         padding: 0px 16px;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        /*safari and chrome*/
+        & {
+            height: $min-input-height;
+            line-height: 1em;
+        }
+    }
+    @media screen\0 {
+        /* IE Hacks: targets IE 8, 9 and 10 */
+        select {
+            height: $min-input-height;
+            line-height: 1em;
+        }
+    }
+    &::-moz-focus-inner {
+        /*Remove button padding in FF*/
+        border: 0;
+        padding: 0;
+    }
+}
+@-moz-document url-prefix() {
+    /* targets Firefox only */
+    .#{$namespace}-dropdown {
+        padding: 15px 0 !important;
+    }
+}
+
+.#{$namespace}-anchor {
+    color: rgba(66, 133, 195, 1);
+    text-decoration: none;
+    &:hover {
+        color: rgba(45, 88, 128, 1);
+        text-decoration: none;
     }
 }
 
@@ -556,6 +588,10 @@ hr {
         position: absolute;
         opacity: 0;
         cursor: pointer;
+    }
+
+    &:focus-within {
+        outline: auto 5px -webkit-focus-ring-color;
     }
 }
 
@@ -681,45 +717,4 @@ hr {
     /* Microsoft Edge */
     color: $reperio-placeholder-gray;
     font-style: italic;
-}
-
-/* The container <div> - needed to position the dropdown content */
-
-.dropdown {
-    top: 0;
-    position: absolute;
-}
-
-/* Dropdown Content (Hidden by Default) */
-
-.dropdown-content-container {
-    min-width: 140px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 5;
-}
-
-.dropdown-content {
-    text-align: center;
-}
-
-.dropdown-content-bottom {
-    max-height: 8px;
-}
-
-/* Links inside the dropdown */
-
-.dropdown-content .dropdown-item {
-    color: black;
-    padding: 3px 4px;
-    text-decoration: none;
-}
-
-/* Change color of dropdown links on hover */
-
-.dropdown-content .dropdown-item:hover {
-    background-color: $reperio-menu-highlight;
-}
-
-.dropdown-content .dropdown-item:active {
-    background-color: $reperio-menu-highlight;
 }

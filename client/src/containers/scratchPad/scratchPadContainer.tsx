@@ -111,6 +111,17 @@ class ScratchPadContainer extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div>Dropdowns</div>
+                            <div>
+                                <select name="tstSel" className="r-form-control r-dropdown">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 
