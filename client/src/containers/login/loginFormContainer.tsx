@@ -35,7 +35,7 @@ class LoginFormContainer extends React.Component {
                             Don't have an account?
                         </div>
                         <LinkContainer to="/create-account">
-                            <button className="reperio-form-control reperio-btn reperio-neutral" type="submit" onClick={() => this.locationChange('/create-account')}>Create Account</button>
+                            <button className="r-form-control r-btn r-neutral" type="submit" onClick={() => this.locationChange('/create-account')}>Create Account</button>
                         </LinkContainer>
                     </div>
                 </fieldset>

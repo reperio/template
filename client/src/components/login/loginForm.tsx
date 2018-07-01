@@ -10,7 +10,7 @@ const LoginForm = (props: any) => (
         <FormGroup>
             <Field  name="email" 
                     component="input"
-                    className="reperio-form-control reperio-text-input"
+                    className="r-form-control r-text-input"
                     type="text"
                     autoFocus
                     placeholder="Email"/>
@@ -18,12 +18,12 @@ const LoginForm = (props: any) => (
         <FormGroup>
             <Field  name="password"
                     component="input"
-                    className="reperio-form-control reperio-text-input"
+                    className="r-form-control r-text-input"
                     type="password"
                     placeholder="Password"/>
         </FormGroup>
         <FormGroup>
-            <button className="reperio-form-control reperio-btn reperio-success" type="submit">Sign in</button>
+            <button className="r-form-control r-btn r-success" type="submit">Sign in</button>
         </FormGroup>
     </form>
 );

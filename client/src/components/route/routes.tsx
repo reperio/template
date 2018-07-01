@@ -8,6 +8,7 @@ import PublicRouteContainer from "../../containers/route/publicRouteContainer";
 import MainDashboardContainer from "../../containers/main/mainDashboardContainer";
 import AccountCreateFormContainer from '../../containers/account/accountCreateFormContainer';
 import AccountEditFormContainer from '../../containers/account/accountEditFormContainer';
+import ScratchPadContainer from '../../containers/scratchPad/scratchPadContainer';
 
 const Routes = (props: any) => (
     <div className="contentContainer">
@@ -16,6 +17,7 @@ const Routes = (props: any) => (
             <PrivateRouteContainer exact path="/home" component={MainDashboardContainer} />
             <PublicRouteContainer exact path="/create-account" component={AccountCreateFormContainer} />
             <PrivateRouteContainer exact path="/edit-account" component={AccountEditFormContainer} />
+            <PublicRouteContainer exact path="/scratch" component={ScratchPadContainer} />
             <Route>
                 <Redirect to="/home"/>
             </Route>

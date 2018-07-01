@@ -23,35 +23,35 @@ h2, h3 {
   padding-bottom: 40px;
 }
 
-.reperio-bar {
+.#{$namespace}-bar {
   width:100%;
   height: 100%;
 }
 
-.reperio-bar-container {
+.#{$namespace}-bar-container {
   height: 15px;
 }
 
-.reperio-bar-animated-container {
+.#{$namespace}-bar-animated-container {
   height: 15px;
   width: 100%;
   overflow: hidden;
   position: relative;
 }
 
-.reperio-bar-animated-inner-container {
+.#{$namespace}-bar-animated-inner-container {
   display: block;
   width: 200%;
   position: absolute;
   animation: slide 3s linear infinite;
 }
 
-.reperio-bar-animated-span {
+.#{$namespace}-bar-animated-span {
   float: left;
   width: 50%;
 }
 
-.reperio-animated-bar {
+.#{$namespace}-animated-bar {
   background: url('../assets/rio-slider-colorband1.png') repeat-x;
   background-size: 100% 100%;
   height: 15px;
@@ -360,50 +360,46 @@ hr {
   margin-bottom: 25px;
 }
 
-.reperio-form-control {
+.#{$namespace}-form-control {
   background-color: white;
   padding: 6px 16px;
   border-radius: 4px;
-  border-width: 0 0 5 0 !important;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0, 0.4);
-  min-height: 45px;
+  border-width: 0.5 0.5 5 0.5 !important;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+  min-height: 48px;
   transition: 0.25s;
+  font: 16px/1.5em 'Nunito Sans', sans-serif;
+  font-weight: lighter;
 }
 
-.reperio-neutral {
+.#{$namespace}-neutral {
   color: $reperio-blue !important;
-  border: solid $reperio-blue !important;
-  border-width: 0 0 5 0 !important;
-  box-shadow: 0px 0px 1px 1px rgba($reperio-blue, 0.5);
+  border-color: $reperio-blue !important;
   &:hover {
     color: white !important;
     background-color: $reperio-blue !important;
     border-color: $reperio-blue !important;
-    border-width: 0 0 5 0 !important;
   }
   &:active {
     color: white !important;
     background-color: $reperio-dark-blue !important;
-    border: solid $reperio-dark-blue !important;
-    border-width: 0 0 5 0 !important;
+    border-color: $reperio-dark-blue !important;
   }
   &:focus {
     outline: transparent;
     background-color: $reperio-dark-blue !important;
-    border: solid $reperio-dark-blue !important;
+    border-color: $reperio-dark-blue !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
   &:disabled {
     outline: transparent;
     background-color: $reperio-disabled-blue !important;
-    border: solid $reperio-disabled-blue !important;
+    border-color: $reperio-disabled-blue !important;
     color: white !important;
-    border-width: 0 0 5 0 !important;
   }
 }
 
-.reperio-warning {
+.#{$namespace}-warning {
   color: $reperio-red !important;
   border: solid $reperio-red !important;
   border-width: 0 0 5 0 !important;
@@ -436,7 +432,7 @@ hr {
   }
 }
 
-.reperio-success {
+.#{$namespace}-success {
   color: $reperio-teal !important;
   border: solid $reperio-teal !important;
   border-width: 0 0 5 0 !important;
@@ -469,7 +465,7 @@ hr {
   }
 }
 
-.reperio-cancel {
+.#{$namespace}-cancel {
   color: $reperio-charcoal !important;
   border: solid $reperio-charcoal !important;
   border-width: 0 0 5 0 !important;
@@ -502,7 +498,7 @@ hr {
   }
 }
 
-.reperio-text-input {
+.#{$namespace}-text-input {
   width: 100%;
   border-color: white;
   padding-bottom: 0px;
@@ -523,7 +519,7 @@ hr {
   }
 }
 
-.reperio-dropdown {
+.#{$namespace}-dropdown {
   width: 100%;
   border-color: white;
   padding-bottom: 0px;
@@ -549,7 +545,7 @@ hr {
   }
 }
 
-.reperio-checkbox-container {
+.#{$namespace}-checkbox-container {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
@@ -561,14 +557,14 @@ hr {
 }
 
 /* Hide the browser's default checkbox */
-.reperio-checkbox-container input {
+.#{$namespace}-checkbox-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
 /* Create a custom checkbox */
-.reperio-checkbox {
+.#{$namespace}-checkbox {
   position: absolute;
   top: 0;
   left: 0;
@@ -582,18 +578,18 @@ hr {
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.reperio-checkbox:after {
+.#{$namespace}-checkbox:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.reperio-checkbox-container input:checked ~ .reperio-checkbox:after {
+.#{$namespace}-checkbox-container input:checked ~ .#{$namespace}-checkbox:after {
   display: block;
 }
 
-.reperio-checkbox-container input:disabled + .reperio-checkbox {
+.#{$namespace}-checkbox-container input:disabled + .#{$namespace}-checkbox {
   border-width: 3 !important;
   border-color: $reperio-disabled-checkbox-blue !important;
   background-color: transparent !important;
@@ -602,7 +598,7 @@ hr {
 }
 
 /* Style the checkmark/indicator */
-.reperio-checkbox-container .reperio-checkbox:after {
+.#{$namespace}-checkbox-container .#{$namespace}-checkbox:after {
   left: 5px;
   width: 6px;
   height: 13px;
@@ -613,7 +609,7 @@ hr {
   transform: rotate(45deg);
 }
 
-.reperio-checkbox-container input:disabled + .reperio-checkbox:after {
+.#{$namespace}-checkbox-container input:disabled + .#{$namespace}-checkbox:after {
   border: solid $reperio-disabled-checkbox-blue;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
