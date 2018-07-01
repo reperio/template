@@ -103,7 +103,7 @@ export const submitAuth = (email: string, password: string) => async (dispatch: 
     
         try {
             await authService.login(email, password);
-
+            debugger;
             history.push('/home');
             locationChange(history.location.pathname)(dispatch);
         } catch (e) {

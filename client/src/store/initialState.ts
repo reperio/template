@@ -32,7 +32,7 @@ export class StateAccount {
 
 export const initialState: State = {
     authSession: {
-        isAuthenticated: true,
+        isAuthenticated: false,
         user: null,
         isLoading: false
     },

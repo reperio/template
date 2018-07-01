@@ -123,7 +123,7 @@ export const editAccount = (user: UserModel, userId: string) => async (dispatch:
             dispatch({
                 type: accountActionTypes.USER_EDIT_END
             });
-
+            debugger;
             history.push('/home');
         } catch (e) {
             dispatch(change('accountEditForm', 'errorMessages', [e.response.data.message]));
