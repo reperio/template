@@ -1,6 +1,6 @@
 @import 'variables';
 @import '~antd/dist/antd.css';
-@import 'react-select/default';
+@import '~react-select/dist/react-select.css';
 
 html,
 body {
@@ -531,7 +531,7 @@ hr {
     >option {
         color: black !important;
     }
-    &:disabled {
+    &:disabled{
         color: $reperio-charcoal;
         box-shadow: 0px 0px 5px 0px rgba($reperio-charcoal, 0.4);
         background-color: $reperio-navbar-background;
@@ -559,6 +559,7 @@ hr {
         padding: 0;
     }
 }
+
 @-moz-document url-prefix() {
     /* targets Firefox only */
     .#{$namespace}-dropdown {
@@ -700,6 +701,80 @@ hr {
         background: $reperio-disabled-checkbox-blue;
     }
 }
+
+/* reset and override some of the React-Select styles to behave like reper.io components */
+.Select-control {
+    border: none;
+    box-shadow: none;
+}
+
+.Select-control {
+    background-color: white;
+    border-radius: 4px;
+    border-width: 0.5 0.5 5 0.5;
+    border-style: solid;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+    border-color: $reperio-input-border;
+    min-height: $min-input-height;
+    transition: 0.25s;
+    font: 16px/1.5em 'Nunito Sans', sans-serif;
+    font-weight: lighter;
+}
+
+.Select.is-clearable.is-searchable.Select--single,
+Select.has-value.is-clearable.is-searchable.Select--single {
+
+    &>.Select-control {
+        border-color: $reperio-input-border;
+        border-bottom-width: 0.5px;
+        outline: transparent !important;
+        padding: 0px 16px;
+    }
+
+    .Select-placeholder {
+        padding: 3.5px 16px;
+    }
+    
+    .Select-input {
+        padding: 0;
+        padding-top: 3.5px;
+    }
+}
+
+.Select-placeholder {
+    color: $reperio-placeholder-gray;
+    font-style: italic;
+    opacity: 1;
+}
+
+.Select-multi-value-wrapper {
+    border-color: $reperio-input-border;
+    border-bottom-width: 0.5px !important;
+    padding-bottom: 4.5px;
+    font: 16px/1.5em 'Nunito Sans', sans-serif;
+    font-weight: lighter;
+    &:focus-within {
+        color: $reperio-blue;
+        padding-bottom: 0;
+        border-bottom-width: 5px !important;
+        border-color: $reperio-blue;
+        outline: transparent !important;
+    }
+    &:disabled {
+        color: $reperio-disabled-placeholder;
+        background-color: $reperio-navbar-background;
+        outline: transparent !important;
+        border-color: $reperio-disabled-charcoal !important;
+        &::placeholder {
+            color: $reperio-disabled-placeholder !important;
+        }
+    }
+}
+
+.Select-control:hover {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+}
+
 
 ::-webkit-input-placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */

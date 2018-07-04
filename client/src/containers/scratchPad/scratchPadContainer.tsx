@@ -1,7 +1,6 @@
 import React from 'react'
 import Select from 'react-select';
 
-
 class ScratchPadContainer extends React.Component {
     props: any;
     
@@ -131,12 +130,25 @@ class ScratchPadContainer extends React.Component {
                             <div>Dropdowns</div>
                             <div>
                                 <Select
-                                    className="r-form-control r-dropdown"
+                                    className=""
                                     value={selectedOption}
+                                    placeholder="This is a single picker"
                                     onChange={this.handleChange}
                                     options={[
                                         {value: 1, label: '1'},
                                         {value: 2, label: 'Option 2'}
+                                    ]} />
+                            </div><br/>
+                            <div>
+                                <Select
+                                    className=""
+                                    value={selectedOption}
+                                    disabled
+                                    placeholder="This is a disabled picker"
+                                    onChange={this.handleChange}
+                                    options={[
+                                        { value: 1, label: '1' },
+                                        { value: 2, label: 'Option 2' }
                                     ]} />
                             </div>
                         </div>
