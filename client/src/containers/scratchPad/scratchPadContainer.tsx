@@ -6,6 +6,8 @@ class ScratchPadContainer extends React.Component {
     
     state = {
         selectedOption: '',
+        selectedMulti: new Array(),
+        textInputValue: ''
     }
 
     handleChange = (selectedOption: any) => {
@@ -16,8 +18,23 @@ class ScratchPadContainer extends React.Component {
         }
     }
 
+    handleMultiChange = (selectedMulti: any) => {
+        this.setState({ selectedMulti });
+        if (selectedMulti) {
+            console.log('Multi Selected: ');
+            console.log(selectedMulti);
+        }
+    }
+
+    handleTextChange = (textInputValue: any) => {
+        this.setState({ textInputValue: textInputValue.target.value });
+        if (textInputValue){
+            console.log(`Input value: ${textInputValue.target.value}`)
+        }
+    }
+
     render() {
-        const { selectedOption } = this.state;
+        const { selectedOption, selectedMulti, textInputValue } = this.state;
 
         return (
             <div>
@@ -61,12 +78,12 @@ class ScratchPadContainer extends React.Component {
                             <div>Inputs</div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <input type="text" className="r-form-control r-text-input" placeholder="This is a placeholder" />
+                                    <input type="text" value={this.state.textInputValue} onChange={this.handleTextChange} className="r-form-control r-text-input" placeholder="This is a placeholder" />
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <input type="text" className="r-form-control r-text-input" placeholder="This is a disabled input" disabled />
+                                    <input type="text" value={this.state.textInputValue} className="r-form-control r-text-input" placeholder="This is a disabled input" disabled />
                                 </div>
                             </div>
                         </div>
@@ -138,7 +155,7 @@ class ScratchPadContainer extends React.Component {
                                         {value: 1, label: '1'},
                                         {value: 2, label: 'Option 2'}
                                     ]} />
-                            </div><br/>
+                            </div><br />
                             <div>
                                 <Select
                                     className=""
@@ -146,6 +163,31 @@ class ScratchPadContainer extends React.Component {
                                     disabled
                                     placeholder="This is a disabled picker"
                                     onChange={this.handleChange}
+                                    options={[
+                                        { value: 1, label: '1' },
+                                        { value: 2, label: 'Option 2' }
+                                    ]} />
+                            </div><br/>
+                            <div>
+                                <Select
+                                    className=""
+                                    value={selectedMulti}
+                                    placeholder="This is a multi picker"
+                                    multi
+                                    onChange={this.handleMultiChange}
+                                    options={[
+                                        { value: 1, label: '1' },
+                                        { value: 2, label: 'Option 2' }
+                                    ]} />
+                            </div><br />
+                            <div>
+                                <Select
+                                    className=""
+                                    value={selectedMulti}
+                                    disabled
+                                    multi
+                                    placeholder="This is a disabled multi picker"
+                                    onChange={this.handleMultiChange}
                                     options={[
                                         { value: 1, label: '1' },
                                         { value: 2, label: 'Option 2' }

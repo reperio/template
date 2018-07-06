@@ -722,13 +722,23 @@ hr {
 }
 
 .Select.is-clearable.is-searchable.Select--single,
-Select.has-value.is-clearable.is-searchable.Select--single {
+.Select.has-value.is-clearable.is-searchable.Select--single,
+.Select.is-clearable.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-searchable.Select--multi {
 
     &>.Select-control {
         border-color: $reperio-input-border;
         border-bottom-width: 0.5px;
         outline: transparent !important;
         padding: 0px 16px;
+    }
+
+    .Select-value-label {
+        color: $reperio-blue;
+    }
+
+    .Select-multi-value-wrapper>.Select-value {
+        padding: 3.5px 16px;
     }
 
     .Select-placeholder {
@@ -738,6 +748,84 @@ Select.has-value.is-clearable.is-searchable.Select--single {
     .Select-input {
         padding: 0;
         padding-top: 3.5px;
+    }
+}
+
+.Select.is-clearable.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-searchable.Select--multi {
+    .Select-multi-value-wrapper>.Select-value {
+        padding: 0;
+    }
+}
+
+.Select.is-clearable.is-searchable.Select--single,
+.Select.has-value.is-clearable.is-searchable.Select--single,
+.Select.is-clearable.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-searchable.Select--multi {
+    .Select-value-label {
+        color: $reperio-charcoal;
+    }
+}
+
+.Select.is-clearable.is-searchable.is-disabled.Select--single,
+.Select.has-value.is-clearable.is-searchable.is-disabled.Select--single,
+.Select.is-clearable.is-searchable.is-disabled.Select--multi,
+.Select.has-value.is-clearable.is-searchable.is-disabled.Select--multi {
+    color: $reperio-disabled-placeholder;
+    background-color: $reperio-navbar-background;
+    outline: transparent !important;
+    border-color: $reperio-disabled-charcoal !important;
+}
+
+.Select.is-clearable.is-searchable.is-open.Select--single,
+.Select.has-value.is-clearable.is-searchable.is-open.Select--single,
+.Select.is-clearable.is-focused.is-searchable.Select--single,
+.Select.has-value.is-clearable.is-focused.is-searchable.Select--single,
+.Select.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--single,
+.Select.has-value.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--single,
+.Select.is-clearable.is-searchable.is-open.Select--multi,
+.Select.has-value.is-clearable.is-searchable.is-open.Select--multi,
+.Select.is-clearable.is-focused.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-focused.is-searchable.Select--multi,
+.Select.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi {
+    &>.Select-control {
+        border-color: $reperio-blue;
+        border-bottom-width: 5px;
+        outline: transparent !important;
+        padding: 0px 16px;
+    }
+
+    .Select-value-label {
+        color: $reperio-blue;
+    }
+
+    .Select-placeholder {
+        padding: 3.5px 16px;
+    }
+
+    .Select-multi-value-wrapper > .Select-value {
+        padding: 3.5px 16px;
+    }
+
+    .Select-input {
+        padding: 0;
+        padding-top: 3.5px;
+    }
+}
+
+.Select.is-clearable.is-searchable.is-open.Select--multi,
+.Select.has-value.is-clearable.is-searchable.is-open.Select--multi,
+.Select.is-clearable.is-focused.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-focused.is-searchable.Select--multi,
+.Select.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi {
+    .Select-multi-value-wrapper>.Select-value {
+        padding: 0;
+    }
+
+    .Select-input {
+        margin-left: 0;
     }
 }
 
@@ -775,6 +863,13 @@ Select.has-value.is-clearable.is-searchable.Select--single {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
 }
 
+.Select.is-clearable.is-disabled.is-searchable.Select--single,
+.Select.has-value.is-clearable.is-disabled.is-searchable.Select--single {
+    color: $reperio-disabled-placeholder;
+    background-color: $reperio-navbar-background;
+    outline: transparent !important;
+    border-color: $reperio-disabled-charcoal !important;
+}
 
 ::-webkit-input-placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
