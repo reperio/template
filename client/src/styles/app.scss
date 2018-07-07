@@ -1,11 +1,13 @@
 @import 'variables';
 @import '~antd/dist/antd.css';
 @import '~react-select/dist/react-select.css';
+@import '~react-datepicker/dist/react-datepicker.css';
 
 html,
 body {
     height: 100%;
     margin: 0;
+    font-size: 14px;
 }
 
 h2,
@@ -721,10 +723,31 @@ hr {
     font-weight: lighter;
 }
 
+.Select-multi-value-wrapper {
+    border-color: $reperio-input-border;
+    border-bottom-width: 0.5px !important;
+    font: 16px/1.5em 'Nunito Sans', sans-serif;
+    font-weight: lighter;
+    &:focus-within {
+        color: $reperio-blue;
+        padding-bottom: 0;
+        border-bottom-width: 5px !important;
+        border-color: $reperio-blue;
+        outline: transparent !important;
+    }
+    &:disabled {
+        color: $reperio-disabled-placeholder;
+        background-color: $reperio-navbar-background;
+        outline: transparent !important;
+        border-color: $reperio-disabled-charcoal !important;
+        &::placeholder {
+            color: $reperio-disabled-placeholder !important;
+        }
+    }
+}
+
 .Select.is-clearable.is-searchable.Select--single,
-.Select.has-value.is-clearable.is-searchable.Select--single,
-.Select.is-clearable.is-searchable.Select--multi,
-.Select.has-value.is-clearable.is-searchable.Select--multi {
+.Select.has-value.is-clearable.is-searchable.Select--single {
 
     &>.Select-control {
         border-color: $reperio-input-border;
@@ -745,6 +768,29 @@ hr {
         padding: 3.5px 16px;
     }
     
+    .Select-input {
+        padding: 0;
+        padding-top: 3.5px;
+    }
+}
+
+.Select.is-clearable.is-searchable.Select--multi,
+.Select.has-value.is-clearable.is-searchable.Select--multi {
+    &>.Select-control {
+        border-color: $reperio-input-border;
+        border-bottom-width: 0.5px;
+        outline: transparent !important;
+        padding: 0px 16px;
+    }
+
+    .Select-value-label {
+        color: $reperio-blue;
+    }
+
+    .Select-placeholder {
+        padding: 3.5px 16px;
+    }
+
     .Select-input {
         padding: 0;
         padding-top: 3.5px;
@@ -782,13 +828,7 @@ hr {
 .Select.is-clearable.is-focused.is-searchable.Select--single,
 .Select.has-value.is-clearable.is-focused.is-searchable.Select--single,
 .Select.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--single,
-.Select.has-value.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--single,
-.Select.is-clearable.is-searchable.is-open.Select--multi,
-.Select.has-value.is-clearable.is-searchable.is-open.Select--multi,
-.Select.is-clearable.is-focused.is-searchable.Select--multi,
-.Select.has-value.is-clearable.is-focused.is-searchable.Select--multi,
-.Select.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi,
-.Select.has-value.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi {
+.Select.has-value.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--single {
     &>.Select-control {
         border-color: $reperio-blue;
         border-bottom-width: 5px;
@@ -820,43 +860,49 @@ hr {
 .Select.has-value.is-clearable.is-focused.is-searchable.Select--multi,
 .Select.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi,
 .Select.has-value.is-clearable.is-focused.is-pseudo-focused.is-searchable.Select--multi {
-    .Select-multi-value-wrapper>.Select-value {
+    &>.Select-control {
+        border-color: $reperio-blue;
+        border-bottom-width: 5px;
+        outline: transparent !important;
+        padding: 0px 16px;
+    }
+
+    .Select-value-label {
+        color: $reperio-blue;
+    }
+
+    .Select-placeholder {
+        padding: 3.5px 16px;
+    }
+
+    .Select-input {
+        padding: 0;
+        padding-top: 3.5px;
+    }
+
+    &>.Select-control.Select-multi-value-wrapper {
         padding: 0;
     }
 
     .Select-input {
         margin-left: 0;
     }
+
+    &>.Select-control {
+        outline: transparent !important;
+    }
+
+    outline: transparent !important;
+}
+
+.Select.is-focused:not(.is-open)>.Select-control {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
 }
 
 .Select-placeholder {
     color: $reperio-placeholder-gray;
     font-style: italic;
     opacity: 1;
-}
-
-.Select-multi-value-wrapper {
-    border-color: $reperio-input-border;
-    border-bottom-width: 0.5px !important;
-    padding-bottom: 4.5px;
-    font: 16px/1.5em 'Nunito Sans', sans-serif;
-    font-weight: lighter;
-    &:focus-within {
-        color: $reperio-blue;
-        padding-bottom: 0;
-        border-bottom-width: 5px !important;
-        border-color: $reperio-blue;
-        outline: transparent !important;
-    }
-    &:disabled {
-        color: $reperio-disabled-placeholder;
-        background-color: $reperio-navbar-background;
-        outline: transparent !important;
-        border-color: $reperio-disabled-charcoal !important;
-        &::placeholder {
-            color: $reperio-disabled-placeholder !important;
-        }
-    }
 }
 
 .Select-control:hover {
@@ -889,4 +935,43 @@ hr {
     /* Microsoft Edge */
     color: $reperio-placeholder-gray;
     font-style: italic;
+}
+
+.react-datepicker {
+    font-size: 1em;
+}
+
+.react-datepicker__header {
+    padding-top: 0.8em;
+}
+
+.react-datepicker__month {
+    margin: 0.4em 1em;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+    width: 1.9em;
+    line-height: 1.9em;
+    margin: 0.166em;
+}
+
+.react-datepicker__current-month {
+    font-size: 1em;
+}
+
+.react-datepicker__navigation {
+    top: 1em;
+    line-height: 1.7em;
+    border: 0.45em solid transparent;
+}
+
+.react-datepicker__navigation--previous {
+    border-right-color: #ccc;
+    left: 1em;
+}
+
+.react-datepicker__navigation--next {
+    border-left-color: #ccc;
+    right: 1em;
 }

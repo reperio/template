@@ -1,13 +1,28 @@
 import React from 'react'
 import Select from 'react-select';
+import DatePicker from 'react-datepicker';
 
 class ScratchPadContainer extends React.Component {
     props: any;
     
-    state = {
+    state: {
+        selectedOption: string,
+        selectedMulti: any,
+        textInputValue: string,
+        selectedDate: any
+    } = {
         selectedOption: '',
-        selectedMulti: new Array(),
-        textInputValue: ''
+        selectedMulti: [],
+        textInputValue: '',
+        selectedDate: null
+    }
+
+    handleDatepickerChange = (selectedDate: any) => {
+        this.setState({selectedDate});
+
+        if (selectedDate) {
+            console.log(`Selected date: ${selectedDate}`);
+        }
     }
 
     handleChange = (selectedOption: any) => {
@@ -193,6 +208,17 @@ class ScratchPadContainer extends React.Component {
                                         { value: 2, label: 'Option 2' }
                                     ]} />
                             </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div>Datepickers</div>
+                            <div>
+                                <DatePicker 
+                                    selected={this.state.selectedDate} 
+                                    onChange={this.handleDatepickerChange}
+                                    className="r-form-control" />
+                            </div><br />
                         </div>
                     </div>
                 </div>
