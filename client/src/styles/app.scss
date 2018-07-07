@@ -817,10 +817,11 @@ hr {
 .Select.has-value.is-clearable.is-searchable.is-disabled.Select--single,
 .Select.is-clearable.is-searchable.is-disabled.Select--multi,
 .Select.has-value.is-clearable.is-searchable.is-disabled.Select--multi {
-    color: $reperio-disabled-placeholder;
-    background-color: $reperio-navbar-background;
-    outline: transparent !important;
-    border-color: $reperio-disabled-charcoal !important;
+    &>.Select-control {
+        color: $reperio-disabled-placeholder;
+        background-color: $reperio-navbar-background;
+        outline: transparent !important;
+    }
 }
 
 .Select.is-clearable.is-searchable.is-open.Select--single,
@@ -905,16 +906,27 @@ hr {
     opacity: 1;
 }
 
-.Select-control:hover {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
-}
-
 .Select.is-clearable.is-disabled.is-searchable.Select--single,
 .Select.has-value.is-clearable.is-disabled.is-searchable.Select--single {
-    color: $reperio-disabled-placeholder;
-    background-color: $reperio-navbar-background;
-    outline: transparent !important;
-    border-color: $reperio-disabled-charcoal !important;
+    &>.Select-control {
+        color: $reperio-disabled-placeholder;
+        background-color: $reperio-navbar-background;
+        outline: transparent !important;
+    }
+}
+
+.Select--multi.is-disabled .Select-value {
+    background-color: #d8d6d6;
+    border: 1px solid #e3e3e3;
+    color: #333;
+}
+
+.Select-arrow-zone, .Select-clear-zone {
+    vertical-align: text-bottom;
+}
+
+.Select-control:hover {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16) !important;
 }
 
 ::-webkit-input-placeholder {

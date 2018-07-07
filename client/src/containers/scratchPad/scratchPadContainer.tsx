@@ -217,8 +217,17 @@ class ScratchPadContainer extends React.Component {
                                 <DatePicker 
                                     selected={this.state.selectedDate} 
                                     onChange={this.handleDatepickerChange}
-                                    className="r-form-control" />
+                                    placeholderText="Datepicker"
+                                    className="r-form-control r-text-input" />
                             </div><br />
+                            <div>
+                                <DatePicker
+                                    selected={this.state.selectedDate}
+                                    onChange={this.handleDatepickerChange}
+                                    placeholderText="Disabled Datepicker"
+                                    className="r-form-control r-text-input"
+                                    disabled />
+                            </div>
                         </div>
                     </div>
                 </div>
