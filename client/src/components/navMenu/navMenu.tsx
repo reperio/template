@@ -15,7 +15,12 @@ const NavMenu = (props: any) => (
                 </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-                <Applications/>
+                <li className="r-menu-left-container">
+                    <ul className="r-menu-left-container-nav-items"></ul>
+                </li>
+                <li className="r-menu-right-container">
+                    <Applications/>
+                </li>
             </Nav>
         </Navbar>
         <ReperioBarContainer />
