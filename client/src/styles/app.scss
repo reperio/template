@@ -2,6 +2,7 @@
 @import '~antd/dist/antd.css';
 @import '~react-select/dist/react-select.css';
 @import '~react-datepicker/dist/react-datepicker.css';
+@import '~https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
 
 html,
 body {
@@ -344,7 +345,14 @@ h3 {
     background-color: $reperio-navbar-background;
     height: auto;
     margin: 0px;
-    padding: 0px;
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    border: 5px solid transparent;
+    border-image:url("../assets/rio-slider-colorband1.png") 5 stretch;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
 }
 
 .dropdown-menu {
@@ -991,7 +999,6 @@ hr {
     right: 1em;
 }
 
-
 .#{$namespace}-applications-menu {
     position: relative;
 }
@@ -1093,4 +1100,47 @@ hr {
 
 .#{$namespace}-applications-container {
     list-style: none;
+}
+
+.#{$namespace}-profile {
+    cursor: pointer;
+}
+
+.#{$namespace}-profile-container {
+    &.btn-default {
+        background: none;
+        border:none;
+    }
+}
+
+#profileInfo {
+    text-align: right;
+}
+
+.btn-group.open .dropdown-toggle {
+    box-shadow: none !important;
+}
+
+.#{$namespace}-profile-menu {
+    position: relative;
+}
+
+.#{$namespace}-profile-content {
+    text-align: right;
+}
+
+.#{$namespace}-profile-initials {
+    border-radius: 50%;
+    height: 36px;
+    max-height: 36px;
+    width: 36px;
+    max-width: 36px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 36px;
+    background-color: #3A73A8;
+    color: white;
+    font: bold;
+    font-family: 'Nunito Sans';
+    font-size: 1.15em;
 }
