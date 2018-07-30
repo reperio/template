@@ -1,21 +1,45 @@
+import ReactTableOptionsModel from "../models/reactTableOptionsModel";
+
 export class State {
     authSession: StateAuthSession;
+    accountCreate: StateAccountCreate;
+    accountEdit: StateAccountEdit;
+    account: StateAccount;
 }
 
 export class StateAuthSession {
-    isPending: boolean;
     isAuthenticated: boolean;
-    isError: boolean;
-    errorMessage: string;
-    user: any;
+    user: null;
+    isLoading: boolean;
+}
+
+export class StateAccountCreate {
+    isLoading: boolean;
+}
+
+export class StateAccountEdit {
+    isLoading: boolean;
+}
+
+export class StateAccount {
+    isLoading: boolean;
+    user: null;
 }
 
 export const initialState: State = {
     authSession: {
-        isPending: false,
         isAuthenticated: false,
-        isError: false,
-        errorMessage: null,
+        user: null,
+        isLoading: false
+    },
+    accountCreate: {
+        isLoading: false
+    },
+    accountEdit: {
+        isLoading: false
+    },
+    account: {
+        isLoading: false,
         user: null
     }
 };
