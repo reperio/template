@@ -1,15 +1,13 @@
 import React from 'react'
-import { Navbar, Nav, NavItem, NavDropdown, DropdownButton } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
-import ReperioBar from '../misc/reperioBar';
+import { Navbar, Nav, NavItem } from "react-bootstrap";
 import ReperioBarContainer from '../../containers/misc/reperioBarContainer';
-import Applications from '../applications/applications';
+import ApplicationsContainer from '../../containers/applications/applicationsContainer';
 import ProfileInfoContainer from '../../containers/profileInfo/profileInfoContainer';
 const reperio = require('../../assets/reperio-rAsset-31.png');
 
 const NavMenu = (props: any) => (
     <div className="nav-menu-container">
-        <Navbar>
+        <Navbar collapseOnSelect>
             <Navbar.Header>
                 <Navbar.Brand>
                     <img className="r-menu-header-icon" src={reperio}/>
@@ -21,15 +19,12 @@ const NavMenu = (props: any) => (
                 </NavItem>
             </Nav>
             <Nav pullRight>
-                <NavItem>
-                    <Applications />
-                </NavItem>
+                <ApplicationsContainer/>
                 <ProfileInfoContainer/>
             </Nav>
         </Navbar>
         <ReperioBarContainer />
     </div>
-    
 );
 
 export default NavMenu;

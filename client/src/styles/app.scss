@@ -121,7 +121,6 @@ h3 {
 }
 
 .navbar-nav {
-    width: 100%;
     li {
         a {
             padding-top: 3px;
@@ -144,8 +143,6 @@ h3 {
 }
 
 .container {
-    margin-left: 0px;
-    display: flex;
     width: 100%;
     padding-left: 27px;
 }
@@ -999,34 +996,25 @@ hr {
     right: 1em;
 }
 
-.#{$namespace}-applications-menu {
-    position: relative;
+.#{$namespace}-applications {
+    cursor: pointer;
 }
 
-.#{$namespace}-applications-menu-content > li > a:after {
-    content: ' \2660';
-    font-size: 75px;
+.#{$namespace}-applications-container {
+    &.btn-default {
+        background: none;
+        border:none;
+    }
 }
 
-.#{$namespace}-applications-menu-content > li > a {
-    padding: 10px;
-    display:block;
-    text-decoration:none;
-}
-
-.#{$namespace}-applications-menu-content > li:hover { 
-    background-color: $reperio-charcoal; 
+.#{$namespace}-applications-container-content > div:hover { 
+    background-color: $reperio-placeholder-gray;
 }
 
 .#{$namespace}-applications-squares {
     display:flex;
     flex-wrap: wrap;
     width: 36px;
-}
-
-.#{$namespace}-applications-menu-content-footer {
-    height: 8px;
-    width: 100%;
 }
 
 .#{$namespace}-applications-square {
@@ -1044,30 +1032,21 @@ hr {
     background-color: transparent;
 }
 
-.#{$namespace}-applications-menu > .#{$namespace}-applications:focus + .#{$namespace}-applications-menu-content  {
-    opacity: 1;
-    visibility: visible;
-}
-
-.#{$namespace}-applications-menu-content {
+.#{$namespace}-applications-container-content {
     display:flex;
-    position: absolute;
     flex-wrap: wrap;
     z-index: 1;
-    opacity: 0;
-    visibility: hidden;
     width: 450px;
-    right: 0;
     transition: visibility 0.5s;
     padding: 0;
 }
 
-.#{$namespace}-applications-menu > .#{$namespace}-applications:focus > .#{$namespace}-applications-squares > .#{$namespace}-applications-square {
+div &.open &.#{$namespace}-applications-container > .#{$namespace}-applications > .#{$namespace}-applications-squares > .#{$namespace}-applications-square {
     background: transparent;
     transition: background 0.25s ease-out;
 }
 
-.#{$namespace}-applications-menu-content > li {
+.#{$namespace}-applications-container-content > div {
     width:150px;
     flex-grow: 1;
     text-align: center;
@@ -1096,10 +1075,6 @@ hr {
         display: inline-block;
         padding:10px;
     }
-}
-
-.#{$namespace}-applications-container {
-    list-style: none;
 }
 
 .#{$namespace}-profile {
