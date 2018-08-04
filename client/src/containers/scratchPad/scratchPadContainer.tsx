@@ -2,6 +2,8 @@ import React from 'react'
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import Button from '../../components/Button';
+import Textbox from '../../components/Textbox';
+import Anchor from '../../components/Anchor';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -98,12 +100,12 @@ class ScratchPadContainer extends React.Component {
                             <div>Inputs</div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <input type="text" value={this.state.textInputValue} onChange={this.handleTextChange} className="r-form-control r-text-input" placeholder="This is a placeholder" />
+                                    <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a placeholder" />
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <input type="text" value={this.state.textInputValue} className="r-form-control r-text-input" placeholder="This is a disabled input" disabled />
+                                    <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a disabled input" disabled />
                                 </div>
                             </div>
                         </div>
@@ -113,7 +115,7 @@ class ScratchPadContainer extends React.Component {
                             <div>Anchors</div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <a href="#" className="r-anchor">Standard Link</a>
+                                    <Anchor href="#" text="Standard Link" />
                                 </div>
                             </div>
                         </div>
