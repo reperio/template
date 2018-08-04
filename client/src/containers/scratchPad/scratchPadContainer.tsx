@@ -1,11 +1,11 @@
 import React from 'react'
-import DatePicker from 'react-datepicker';
 import Button from '../../components/Button';
 import Textbox from '../../components/Textbox';
 import Anchor from '../../components/Anchor';
 import Checkbox from '../../components/Checkbox';
 import RadioButton from '../../components/RadioButton';
 import Picker from '../../components/Picker';
+import Datepicker from '../../components/Datepicker';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -214,18 +214,16 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Datepickers</div>
                             <div>
-                                <DatePicker 
+                                <Datepicker 
                                     selected={this.state.selectedDate} 
                                     onChange={this.handleDatepickerChange}
-                                    placeholderText="Datepicker"
-                                    className="r-form-control r-text-input" />
+                                    placeholder="Datepicker" />
                             </div><br />
                             <div>
-                                <DatePicker
+                                <Datepicker
                                     selected={this.state.selectedDate}
                                     onChange={this.handleDatepickerChange}
-                                    placeholderText="Disabled Datepicker"
-                                    className="r-form-control r-text-input"
+                                    placeholder="Disabled Datepicker"
                                     disabled />
                             </div>
                         </div>
