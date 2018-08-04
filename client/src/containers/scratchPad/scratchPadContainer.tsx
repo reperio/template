@@ -1,6 +1,11 @@
 import React from 'react'
-import Select from 'react-select';
-import DatePicker from 'react-datepicker';
+import Button from '../../components/Button';
+import Textbox from '../../components/Textbox';
+import Anchor from '../../components/Anchor';
+import Checkbox from '../../components/Checkbox';
+import RadioButton from '../../components/RadioButton';
+import Picker from '../../components/Picker';
+import Datepicker from '../../components/Datepicker';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -9,12 +14,24 @@ class ScratchPadContainer extends React.Component {
         selectedOption: string,
         selectedMulti: any,
         textInputValue: string,
-        selectedDate: any
+        selectedDate: any,
+        checked: boolean,
+        selectedRadio: string
     } = {
         selectedOption: '',
         selectedMulti: [],
         textInputValue: '',
-        selectedDate: null
+        selectedDate: null,
+        checked: false,
+        selectedRadio: ''
+    }
+
+    handleClick = (event: any) => {
+        console.log('clicked: ' + event);
+    }
+
+    handleCheckboxChange = (event: any) => {
+        this.setState({checked: event.target.checked});
     }
 
     handleDatepickerChange = (selectedDate: any) => {
@@ -25,15 +42,26 @@ class ScratchPadContainer extends React.Component {
         }
     }
 
-    handleChange = (selectedOption: any) => {
-        this.setState({ selectedOption });
-        // selectedOption can be null when the `x` (close) button is clicked
-        if (selectedOption) {
-            console.log(`Selected: ${selectedOption.label}`);
+    handleRadiochange = (event: any) => {
+        let selectedRadio = event.target.value;
+        this.setState({ selectedRadio });
+
+        if (selectedRadio) {
+            console.log(`Selected: ${selectedRadio}`)
         }
     }
 
-    handleMultiChange = (selectedMulti: any) => {
+    handleChange = (option: any) => {
+        let selectedOption = option.value;
+        this.setState({ selectedOption });
+        // selectedOption can be null when the `x` (close) button is clicked
+        if (selectedOption) {
+            console.log(`Selected: ${selectedOption}`);
+        }
+    }
+
+    handleMultiChange = (options: Array<any>) => {
+        let selectedMulti = options;
         this.setState({ selectedMulti });
         if (selectedMulti) {
             console.log('Multi Selected: ');
@@ -49,7 +77,7 @@ class ScratchPadContainer extends React.Component {
     }
 
     render() {
-        const { selectedOption, selectedMulti, textInputValue } = this.state;
+        const { selectedOption, selectedMulti, textInputValue, checked, selectedRadio } = this.state;
 
         return (
             <div>
@@ -58,16 +86,16 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Buttons</div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-neutral">Neutral</button>
+                                <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-danger">Danger</button>
+                                <Button color="danger" name="danger" text="Danger" />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-success">Success</button>
+                                <Button color="success" name="success" text="Success" />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-cancel">Cancel</button>
+                                <Button color="cancel" name="cancel" text="Cancel" />
                             </div>
                         </div>
                     </div>
@@ -75,16 +103,16 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Buttons (disabled)</div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-neutral" disabled>Neutral</button>
+                                <Button color="neutral" name="neutraldisabled" text="Neutral" disabled />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-danger" disabled>Danger</button>
+                                <Button color="danger" name="dangerdisabled" text="Danger" disabled />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-success" disabled>Success</button>
+                                <Button color="success" name="successdisabled" text="Success" disabled />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-cancel" disabled>Cancel</button>
+                                <Button color="cancel" name="canceldisabled" text="Cancel" disabled />
                             </div>
                         </div>
                     </div>
@@ -93,12 +121,12 @@ class ScratchPadContainer extends React.Component {
                             <div>Inputs</div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <input type="text" value={this.state.textInputValue} onChange={this.handleTextChange} className="r-form-control r-text-input" placeholder="This is a placeholder" />
+                                    <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a placeholder" />
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <input type="text" value={this.state.textInputValue} className="r-form-control r-text-input" placeholder="This is a disabled input" disabled />
+                                    <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a disabled input" disabled />
                                 </div>
                             </div>
                         </div>
@@ -108,7 +136,7 @@ class ScratchPadContainer extends React.Component {
                             <div>Anchors</div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <a href="#" className="r-anchor">Standard Link</a>
+                                    <Anchor href="#" text="Standard Link" />
                                 </div>
                             </div>
                         </div>
@@ -120,39 +148,15 @@ class ScratchPadContainer extends React.Component {
                             <div>Checkboxes/Radio Buttons</div>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <label className="r-checkbox-container">
-                                        Checkbox Label
-                                        <input type="checkbox" name="tstChk" id="" />
-                                        <span className="r-checkbox"></span>
-                                    </label><br/>
-                                    <label className="r-checkbox-container">
-                                        Disabled Checkbox Label
-                                        <input type="checkbox" name="tstChk2" disabled id="" />
-                                        <span className="r-checkbox"></span>
-                                    </label>
+                                    <Checkbox label="Checkbox Label" name="tstChk" checked={checked} onChange={this.handleCheckboxChange} /><br/>
+                                    <Checkbox label="Disabled Checkbox Label" name="tstChkDisabled" checked={false} onChange={this.handleCheckboxChange} disabled />
                                 </div>
                                 <div className="col-md-6">
-                                    <label className="r-checkbox-container">
-                                        Radio Label 1
-                                        <input type="radio" name="rad"/>
-                                        <span className="r-radio-checkmark"></span>
-                                    </label><br/>
-                                    <label className="r-checkbox-container">
-                                        Radio Label 2
-                                        <input type="radio" name="rad" />
-                                        <span className="r-radio-checkmark"></span>
-                                    </label>
-                                    <br />
-                                    <label className="r-checkbox-container">
-                                        Disabled Radio 1
-                                        <input type="radio" name="radDis" checked={true} disabled />
-                                        <span className="r-radio-checkmark"></span>
-                                    </label><br/>
-                                    <label className="r-checkbox-container">
-                                        Disabled Radio 2
-                                        <input type="radio" name="radDis" disabled />
-                                        <span className="r-radio-checkmark"></span>
-                                    </label>
+                                    <RadioButton label="Radio Label 1" name="rad" value="rad1" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
+                                    <RadioButton label="Radio Label 2" name="rad" value="rad2" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
+
+                                    <RadioButton label="Disabled Label 1" name="radDis" value="rad1" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} /><br />
+                                    <RadioButton label="Disabled Label 2" name="radDis" value="rad2" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} />
                                 </div>
                             </div>
                         </div>
@@ -161,8 +165,7 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Dropdowns</div>
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedOption}
                                     placeholder="This is a single picker"
                                     onChange={this.handleChange}
@@ -172,8 +175,7 @@ class ScratchPadContainer extends React.Component {
                                     ]} />
                             </div><br />
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedOption}
                                     disabled
                                     placeholder="This is a disabled picker"
@@ -184,8 +186,7 @@ class ScratchPadContainer extends React.Component {
                                     ]} />
                             </div><br/>
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedMulti}
                                     placeholder="This is a multi picker"
                                     multi
@@ -196,8 +197,7 @@ class ScratchPadContainer extends React.Component {
                                     ]} />
                             </div><br />
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedMulti}
                                     disabled
                                     multi
@@ -214,18 +214,16 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Datepickers</div>
                             <div>
-                                <DatePicker 
+                                <Datepicker 
                                     selected={this.state.selectedDate} 
                                     onChange={this.handleDatepickerChange}
-                                    placeholderText="Datepicker"
-                                    className="r-form-control r-text-input" />
+                                    placeholder="Datepicker" />
                             </div><br />
                             <div>
-                                <DatePicker
+                                <Datepicker
                                     selected={this.state.selectedDate}
                                     onChange={this.handleDatepickerChange}
-                                    placeholderText="Disabled Datepicker"
-                                    className="r-form-control r-text-input"
+                                    placeholder="Disabled Datepicker"
                                     disabled />
                             </div>
                         </div>
