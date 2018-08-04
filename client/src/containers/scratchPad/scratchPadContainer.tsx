@@ -63,7 +63,7 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Buttons</div>
                             <div className="col-md-3">
-                                <Button color="neutral" name="test" text="Neutral" onClick={this.handleClick} />
+                                <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} />
                             </div>
                             <div className="col-md-3">
                                 <Button color="danger" name="danger" text="Danger" />
@@ -80,16 +80,16 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Buttons (disabled)</div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-neutral" disabled>Neutral</button>
+                                <Button color="neutral" name="neutraldisabled" text="Neutral" disabled />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-danger" disabled>Danger</button>
+                                <Button color="danger" name="dangerdisabled" text="Danger" disabled />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-success" disabled>Success</button>
+                                <Button color="success" name="successdisabled" text="Success" disabled />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-cancel" disabled>Cancel</button>
+                                <Button color="cancel" name="canceldisabled" text="Cancel" disabled />
                             </div>
                         </div>
                     </div>
