@@ -4,6 +4,8 @@ import DatePicker from 'react-datepicker';
 import Button from '../../components/Button';
 import Textbox from '../../components/Textbox';
 import Anchor from '../../components/Anchor';
+import Checkbox from '../../components/Checkbox';
+import RadioButton from '../../components/RadioButton';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -12,16 +14,22 @@ class ScratchPadContainer extends React.Component {
         selectedOption: string,
         selectedMulti: any,
         textInputValue: string,
-        selectedDate: any
+        selectedDate: any,
+        checked: boolean
     } = {
         selectedOption: '',
         selectedMulti: [],
         textInputValue: '',
-        selectedDate: null
+        selectedDate: null,
+        checked: false
     }
 
     handleClick = (event: any) => {
         console.log('clicked: ' + event);
+    }
+
+    handleCheckboxChange = (event: any) => {
+        this.setState({checked: event.target.checked});
     }
 
     handleDatepickerChange = (selectedDate: any) => {
@@ -32,11 +40,12 @@ class ScratchPadContainer extends React.Component {
         }
     }
 
-    handleChange = (selectedOption: any) => {
+    handleChange = (event: any) => {
+        let selectedOption = event.target.value;
         this.setState({ selectedOption });
         // selectedOption can be null when the `x` (close) button is clicked
         if (selectedOption) {
-            console.log(`Selected: ${selectedOption.label}`);
+            console.log(`Selected: ${selectedOption}`);
         }
     }
 
@@ -56,7 +65,7 @@ class ScratchPadContainer extends React.Component {
     }
 
     render() {
-        const { selectedOption, selectedMulti, textInputValue } = this.state;
+        const { selectedOption, selectedMulti, textInputValue, checked } = this.state;
 
         return (
             <div>
@@ -127,39 +136,15 @@ class ScratchPadContainer extends React.Component {
                             <div>Checkboxes/Radio Buttons</div>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <label className="r-checkbox-container">
-                                        Checkbox Label
-                                        <input type="checkbox" name="tstChk" id="" />
-                                        <span className="r-checkbox"></span>
-                                    </label><br/>
-                                    <label className="r-checkbox-container">
-                                        Disabled Checkbox Label
-                                        <input type="checkbox" name="tstChk2" disabled id="" />
-                                        <span className="r-checkbox"></span>
-                                    </label>
+                                    <Checkbox label="Checkbox Label" name="tstChk" checked={checked} onChange={this.handleCheckboxChange} /><br/>
+                                    <Checkbox label="Disabled Checkbox Label" name="tstChkDisabled" checked={false} onChange={this.handleCheckboxChange} disabled />
                                 </div>
                                 <div className="col-md-6">
-                                    <label className="r-checkbox-container">
-                                        Radio Label 1
-                                        <input type="radio" name="rad"/>
-                                        <span className="r-radio-checkmark"></span>
-                                    </label><br/>
-                                    <label className="r-checkbox-container">
-                                        Radio Label 2
-                                        <input type="radio" name="rad" />
-                                        <span className="r-radio-checkmark"></span>
-                                    </label>
-                                    <br />
-                                    <label className="r-checkbox-container">
-                                        Disabled Radio 1
-                                        <input type="radio" name="radDis" checked={true} disabled />
-                                        <span className="r-radio-checkmark"></span>
-                                    </label><br/>
-                                    <label className="r-checkbox-container">
-                                        Disabled Radio 2
-                                        <input type="radio" name="radDis" disabled />
-                                        <span className="r-radio-checkmark"></span>
-                                    </label>
+                                    <RadioButton label="Radio Label 1" name="rad" value="rad1" selectedOption={selectedOption} onChange={this.handleChange} /><br/>
+                                    <RadioButton label="Radio Label 2" name="rad" value="rad2" selectedOption={selectedOption} onChange={this.handleChange} /><br/>
+
+                                    <RadioButton label="Disabled Label 1" name="radDis" value="rad1" selectedOption={selectedOption} disabled onChange={this.handleChange} /><br />
+                                    <RadioButton label="Disabled Label 2" name="radDis" value="rad2" selectedOption={selectedOption} disabled onChange={this.handleChange} />
                                 </div>
                             </div>
                         </div>
