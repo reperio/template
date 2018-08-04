@@ -1,6 +1,7 @@
 import React from 'react'
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
+import Button from '../../components/Button';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -15,6 +16,10 @@ class ScratchPadContainer extends React.Component {
         selectedMulti: [],
         textInputValue: '',
         selectedDate: null
+    }
+
+    handleClick = (event: any) => {
+        console.log('clicked: ' + event);
     }
 
     handleDatepickerChange = (selectedDate: any) => {
@@ -58,16 +63,16 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Buttons</div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-neutral">Neutral</button>
+                                <Button color="neutral" name="test" text="Neutral" onClick={this.handleClick} />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-danger">Danger</button>
+                                <Button color="danger" name="danger" text="Danger" />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-success">Success</button>
+                                <Button color="success" name="success" text="Success" />
                             </div>
                             <div className="col-md-3">
-                                <button className="r-form-control r-btn r-cancel">Cancel</button>
+                                <Button color="cancel" name="cancel" text="Cancel" />
                             </div>
                         </div>
                     </div>

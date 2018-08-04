@@ -929,7 +929,7 @@ hr {
 .Select--multi.is-disabled .Select-value {
     background-color: #d8d6d6;
     border: 1px solid #e3e3e3;
-    color: #333;
+    color: $reperio-disabled-placeholder;
 }
 
 .Select-arrow-zone, .Select-clear-zone {
@@ -938,6 +938,13 @@ hr {
 
 .Select-control:hover {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16) !important;
+}
+
+.Select.is-clearable.is-searchable.Select--single .Select-value-label,
+.Select.has-value.is-clearable.is-searchable.Select--single .Select-value-label,
+.Select.is-clearable.is-searchable.Select--multi .Select-value-label,
+.Select.has-value.is-clearable.is-searchable.Select--multi .Select-value-label {
+    color: $reperio-disabled-placeholder;
 }
 
 ::-webkit-input-placeholder {
