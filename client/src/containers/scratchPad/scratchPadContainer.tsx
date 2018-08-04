@@ -1,11 +1,11 @@
 import React from 'react'
-import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import Button from '../../components/Button';
 import Textbox from '../../components/Textbox';
 import Anchor from '../../components/Anchor';
 import Checkbox from '../../components/Checkbox';
 import RadioButton from '../../components/RadioButton';
+import Picker from '../../components/Picker';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -15,13 +15,15 @@ class ScratchPadContainer extends React.Component {
         selectedMulti: any,
         textInputValue: string,
         selectedDate: any,
-        checked: boolean
+        checked: boolean,
+        selectedRadio: string
     } = {
         selectedOption: '',
         selectedMulti: [],
         textInputValue: '',
         selectedDate: null,
-        checked: false
+        checked: false,
+        selectedRadio: ''
     }
 
     handleClick = (event: any) => {
@@ -40,8 +42,17 @@ class ScratchPadContainer extends React.Component {
         }
     }
 
-    handleChange = (event: any) => {
-        let selectedOption = event.target.value;
+    handleRadiochange = (event: any) => {
+        let selectedRadio = event.target.value;
+        this.setState({ selectedRadio });
+
+        if (selectedRadio) {
+            console.log(`Selected: ${selectedRadio}`)
+        }
+    }
+
+    handleChange = (option: any) => {
+        let selectedOption = option.value;
         this.setState({ selectedOption });
         // selectedOption can be null when the `x` (close) button is clicked
         if (selectedOption) {
@@ -49,7 +60,8 @@ class ScratchPadContainer extends React.Component {
         }
     }
 
-    handleMultiChange = (selectedMulti: any) => {
+    handleMultiChange = (options: Array<any>) => {
+        let selectedMulti = options;
         this.setState({ selectedMulti });
         if (selectedMulti) {
             console.log('Multi Selected: ');
@@ -65,7 +77,7 @@ class ScratchPadContainer extends React.Component {
     }
 
     render() {
-        const { selectedOption, selectedMulti, textInputValue, checked } = this.state;
+        const { selectedOption, selectedMulti, textInputValue, checked, selectedRadio } = this.state;
 
         return (
             <div>
@@ -140,11 +152,11 @@ class ScratchPadContainer extends React.Component {
                                     <Checkbox label="Disabled Checkbox Label" name="tstChkDisabled" checked={false} onChange={this.handleCheckboxChange} disabled />
                                 </div>
                                 <div className="col-md-6">
-                                    <RadioButton label="Radio Label 1" name="rad" value="rad1" selectedOption={selectedOption} onChange={this.handleChange} /><br/>
-                                    <RadioButton label="Radio Label 2" name="rad" value="rad2" selectedOption={selectedOption} onChange={this.handleChange} /><br/>
+                                    <RadioButton label="Radio Label 1" name="rad" value="rad1" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
+                                    <RadioButton label="Radio Label 2" name="rad" value="rad2" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
 
-                                    <RadioButton label="Disabled Label 1" name="radDis" value="rad1" selectedOption={selectedOption} disabled onChange={this.handleChange} /><br />
-                                    <RadioButton label="Disabled Label 2" name="radDis" value="rad2" selectedOption={selectedOption} disabled onChange={this.handleChange} />
+                                    <RadioButton label="Disabled Label 1" name="radDis" value="rad1" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} /><br />
+                                    <RadioButton label="Disabled Label 2" name="radDis" value="rad2" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} />
                                 </div>
                             </div>
                         </div>
@@ -153,8 +165,7 @@ class ScratchPadContainer extends React.Component {
                         <div className="col-md-12">
                             <div>Dropdowns</div>
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedOption}
                                     placeholder="This is a single picker"
                                     onChange={this.handleChange}
@@ -164,8 +175,7 @@ class ScratchPadContainer extends React.Component {
                                     ]} />
                             </div><br />
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedOption}
                                     disabled
                                     placeholder="This is a disabled picker"
@@ -176,8 +186,7 @@ class ScratchPadContainer extends React.Component {
                                     ]} />
                             </div><br/>
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedMulti}
                                     placeholder="This is a multi picker"
                                     multi
@@ -188,8 +197,7 @@ class ScratchPadContainer extends React.Component {
                                     ]} />
                             </div><br />
                             <div>
-                                <Select
-                                    className=""
+                                <Picker
                                     value={selectedMulti}
                                     disabled
                                     multi
