@@ -1,11 +1,5 @@
 import React from 'react'
-import Button from '../../components/Button';
-import Textbox from '../../components/Textbox';
-import Anchor from '../../components/Anchor';
-import Checkbox from '../../components/Checkbox';
-import RadioButton from '../../components/RadioButton';
-import Picker from '../../components/Picker';
-import Datepicker from '../../components/Datepicker';
+import {Button, Anchor, Textbox, Checkbox, RadioButton, Picker, Datepicker} from '@reperio/ui-components';
 
 class ScratchPadContainer extends React.Component {
     props: any;

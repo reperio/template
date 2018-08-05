@@ -41,6 +41,16 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
+"@reperio/ui-components@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@reperio/ui-components/-/ui-components-0.1.1.tgz#4ac3fc59143e07a00b8798e3a4827bf2d356222f"
+  dependencies:
+    moment "^2.22.2"
+    react "^16.4.2"
+    react-datepicker "^1.5.0"
+    react-dom "^16.2.0"
+    react-select "^1.2.1"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -6867,6 +6877,15 @@ react-widgets@^4.2.6:
 react@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+
+react@^16.4.2:
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
