@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap'
 import ReperioBarContainer from '../../containers/misc/reperioBarContainer';
 import ApplicationsContainer from '../../containers/applications/applicationsContainer';
 import ProfileInfoContainer from '../../containers/profileInfo/profileInfoContainer';
@@ -14,9 +15,12 @@ const NavMenu = (props: any) => (
                 </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-                <NavItem className="r-menu-left-container">
-                    <ul className="r-menu-left-container-nav-items"></ul>
-                </NavItem>
+                <LinkContainer exact to="/scratch">
+                    <NavItem>Test</NavItem>
+                </LinkContainer>
+                <LinkContainer exact to="/login">
+                    <NavItem>Test2</NavItem>
+                </LinkContainer>
             </Nav>
             <Nav pullRight>
                 <ApplicationsContainer/>
