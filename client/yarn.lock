@@ -41,15 +41,15 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
-"@reperio/ui-components@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@reperio/ui-components/-/ui-components-0.1.1.tgz#4ac3fc59143e07a00b8798e3a4827bf2d356222f"
+"@reperio/ui-components@file:../../ui-components":
+  version "0.1.2"
   dependencies:
     moment "^2.22.2"
     react "^16.4.2"
     react-datepicker "^1.5.0"
     react-dom "^16.2.0"
     react-select "^1.2.1"
+    react-table "https://github.com/reperio/react-table.git"
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -155,12 +155,6 @@
 "@types/react-select@^1.2.7":
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/@types/react-select/-/react-select-1.2.7.tgz#1ae033f42d2660550e39ae6f4380a78a9850e402"
-  dependencies:
-    "@types/react" "*"
-
-"@types/react-table@^6.7.7":
-  version "6.7.11"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-6.7.11.tgz#26e85411981054af7dd657ef81e249baa6aee3d5"
   dependencies:
     "@types/react" "*"
 
@@ -6819,9 +6813,9 @@ react-spinners@^0.2.6:
     react-emotion "^8.0.6"
     recompose "0.26.0"
 
-react-table@^6.8.0:
-  version "6.8.6"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-6.8.6.tgz#a0ad8b4839319052d5befc012603fb161e52ede3"
+"react-table@https://github.com/reperio/react-table.git":
+  version "6.8.7"
+  resolved "https://github.com/reperio/react-table.git#b60c02faecb362cfd444533758d8ebb817769a87"
   dependencies:
     classnames "^2.2.5"
 

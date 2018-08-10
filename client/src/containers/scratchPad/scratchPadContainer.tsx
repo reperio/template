@@ -1,5 +1,13 @@
 import React from 'react'
-import {Button, Anchor, Textbox, Checkbox, RadioButton, Picker, Datepicker} from '@reperio/ui-components';
+const Button = require('@reperio/ui-components').Button;
+const Anchor = require('@reperio/ui-components').Anchor;
+const Textbox = require('@reperio/ui-components').Textbox;
+const Checkbox = require('@reperio/ui-components').Checkbox;
+const RadioButton = require('@reperio/ui-components').RadioButton;
+const Picker = require('@reperio/ui-components').Picker;
+const Datepicker = require('@reperio/ui-components').Datepicker;
+const Grid = require('@reperio/ui-components').Grid;
+//import {Button, Anchor, Textbox, Checkbox, RadioButton, Picker, Datepicker, Grid} from '@reperio/ui-components';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -10,14 +18,51 @@ class ScratchPadContainer extends React.Component {
         textInputValue: string,
         selectedDate: any,
         checked: boolean,
-        selectedRadio: string
+        selectedRadio: string,
+        gridData: any[],
+        gridColumns: any[]
     } = {
         selectedOption: '',
         selectedMulti: [],
         textInputValue: '',
         selectedDate: null,
         checked: false,
-        selectedRadio: ''
+        selectedRadio: '',
+        gridData: [
+            {
+                firstName: 'hello',
+                lastName: 'its me',
+                age: 1,
+                Placeholder: 'TEST'
+            },
+            {
+                firstName: 'its me',
+                lastName: 'mario',
+                age: 2
+            },
+            {
+                firstName: 'dunkin',
+                lastName: 'donuts',
+                age: 3
+            },
+        ],
+        gridColumns: [
+            {
+                Header: "First Name",
+                accessor: "firstName",
+                Placeholder: "test"
+            },
+            {
+                Header: "Last Name",
+                accessor: "lastName",
+                Placeholder: "test1"
+            },
+            {
+                Header: "Age",
+                accessor: "age",
+                Placeholder: "test2"
+            }
+        ]
     }
 
     handleClick = (event: any) => {
@@ -71,7 +116,7 @@ class ScratchPadContainer extends React.Component {
     }
 
     render() {
-        const { selectedOption, selectedMulti, textInputValue, checked, selectedRadio } = this.state;
+        const { selectedOption, selectedMulti, textInputValue, checked, selectedRadio, gridColumns, gridData } = this.state;
 
         return (
             <div>
@@ -222,7 +267,14 @@ class ScratchPadContainer extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <Grid 
+                        data={gridData}
+                        filterable={true}
+                        columns={gridColumns}
+                    />
                 </div>
+
+
                 
                 
             </div>
