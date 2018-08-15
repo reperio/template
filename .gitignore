@@ -70,3 +70,7 @@ typings/
 server/dist
 db/lib
 client/dist
+
+# vim
+*.swp
+*.swo
