@@ -2,7 +2,7 @@
 @import '~antd/dist/antd.css';
 @import '~react-select/dist/react-select.css';
 @import '~react-datepicker/dist/react-datepicker.css';
-@import '~@reperio/ui-components/dist/styles.min.css';
+@import '~@reperio/ui-components/lib/styles.min.css';
 @import '~https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
 
 html,
@@ -119,6 +119,10 @@ h3 {
     display: flex;
     margin-bottom: 0px;
     background-color: $reperio-navbar-background;
+}
+
+.navbar-header {
+    min-width: 60px;
 }
 
 .navbar-nav {

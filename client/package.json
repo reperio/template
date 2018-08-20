@@ -11,7 +11,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@reperio/ui-components": "file:/Users/alecreser/Desktop/SHT/ui-components",
+        "@reperio/ui-components": "^0.1.10",
         "@types/react-datepicker": "^1.1.5",
         "axios": "^0.17.1",
         "core-js": "^2.5.3",
