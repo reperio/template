@@ -3,6 +3,7 @@ import {Navbar, LinkContainer, NavItem, ApplicationMenuItem} from '@reperio/ui-c
 
 const NavMenu = (props: any) => (
     <Navbar
+        authenticated={true}
         profile={{initials: 'BA',
             name:'Brian Adams',
             accountName: 'Reper.io',
