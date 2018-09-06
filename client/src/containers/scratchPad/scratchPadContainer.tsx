@@ -116,18 +116,32 @@ class ScratchPadContainer extends React.Component {
                     <div className="row">
                         <Wrapper>
                             <div className="col-md-12">
-                                <div>Buttons</div>
-                                <div className="col-md-3">
-                                    <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} />
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div>Buttons</div>
+                                        <div className="col-md-3">
+                                            <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <Button color="danger" name="danger" text="Danger" />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <Button color="success" name="success" text="Success" />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <Button color="cancel" name="cancel" text="Cancel" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col-md-3">
-                                    <Button color="danger" name="danger" text="Danger" />
-                                </div>
-                                <div className="col-md-3">
-                                    <Button color="success" name="success" text="Success" />
-                                </div>
-                                <div className="col-md-3">
-                                    <Button color="cancel" name="cancel" text="Cancel" />
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="col-md-6">
+                                        <Button color="neutral" name="wide_neutral" text="Wide" wide />
+                                        </div>
+                                        <div className="col-md-6">
+                                        <Button color="neutral" name="wide_neutral" text="Wide" wide />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </Wrapper>
@@ -273,11 +287,15 @@ class ScratchPadContainer extends React.Component {
                 </div>
             </Wrapper>
         </div>
-        <Grid 
-            data={gridData}
-            filterable={true}
-            columns={gridColumns}
-            />
+        <Wrapper>
+            <div className="col-md-12">
+                <Grid 
+                    data={gridData}
+                    filterable={true}
+                    columns={gridColumns}
+                    />
+            </div>
+        </Wrapper>
     </div>
 </div>
 )

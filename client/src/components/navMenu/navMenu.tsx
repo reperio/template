@@ -1,34 +1,30 @@
 import React from 'react'
-import { Navbar, Nav, NavItem } from "react-bootstrap";
-import { LinkContainer } from 'react-router-bootstrap'
-import ReperioBarContainer from '../../containers/misc/reperioBarContainer';
-import ApplicationsContainer from '../../containers/applications/applicationsContainer';
-import ProfileInfoContainer from '../../containers/profileInfo/profileInfoContainer';
-const reperio = require('../../assets/reperio-rAsset-31.png');
+import {Navbar, LinkContainer, NavItem, ApplicationMenuItem} from '@reperio/ui-components'
 
 const NavMenu = (props: any) => (
-    <div className="nav-menu-container">
-        <Navbar collapseOnSelect>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    <img className="r-menu-header-icon" src={reperio}/>
-                </Navbar.Brand>
-            </Navbar.Header>
-            <Nav>
-                <LinkContainer exact to="/scratch">
-                    <NavItem>Test</NavItem>
-                </LinkContainer>
-                <LinkContainer exact to="/login">
-                    <NavItem>Test2</NavItem>
-                </LinkContainer>
-            </Nav>
-            <Nav pullRight>
-                <ApplicationsContainer/>
-                <ProfileInfoContainer/>
-            </Nav>
-        </Navbar>
-        <ReperioBarContainer />
-    </div>
+    <Navbar
+        profile={{initials: 'BA',
+            name:'Brian Adams',
+            accountName: 'Reper.io',
+            phone: '1234567890',
+            email:'brian@reper.io'}}
+        linkContainers={[
+            <LinkContainer key="1" exact to="/scratch">
+                <NavItem>Test</NavItem>
+            </LinkContainer>,
+            <LinkContainer key="2" exact to="/login">
+                <NavItem>Test2</NavItem>
+            </LinkContainer>
+        ]}
+        applicationMenuItems={[
+            <ApplicationMenuItem key="1" name="Example1" label="Example" />,
+            <ApplicationMenuItem key="2" name="Exmaple2" label="Example 2" />,
+            <ApplicationMenuItem key="3" name="Nic Cage" image="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />,
+            <ApplicationMenuItem key="4" name="Nic Cage" image="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />,
+            <ApplicationMenuItem key="5" name="Nic Cage" image="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />
+        ]}
+        >
+    </Navbar>
 );
 
 export default NavMenu;
