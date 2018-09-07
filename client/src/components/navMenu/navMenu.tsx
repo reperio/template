@@ -24,7 +24,6 @@ const NavMenu = (props: any) => (
             <ApplicationMenuItem key="4" name="Nic Cage" image="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />,
             <ApplicationMenuItem key="5" name="Nic Cage" image="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />
         ]}
-        authenticated={true}
         >
     </Navbar>
 );
