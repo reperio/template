@@ -11,7 +11,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@reperio/ui-components": "^0.2.5",
+        "@reperio/ui-components": "^0.2.12",
         "@types/react-datepicker": "^1.1.5",
         "axios": "^0.17.1",
         "core-js": "^2.5.3",

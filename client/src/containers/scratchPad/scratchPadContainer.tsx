@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Anchor, Textbox, Checkbox, RadioButton, Picker, Datepicker, Grid, Wrapper} from '@reperio/ui-components';
+import {Button, Anchor, Textbox, Textarea, Checkbox, RadioButton, Picker, Datepicker, Grid, Wrapper} from '@reperio/ui-components';
 
 class ScratchPadContainer extends React.Component {
     props: any;
@@ -179,6 +179,16 @@ class ScratchPadContainer extends React.Component {
                                         <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a disabled input" disabled />
                                     </div>
                                 </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Textarea value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a placeholder" />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Textarea value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a disabled input" disabled />
+                                    </div>
+                                </div>
                             </div> 
                         </Wrapper>
                     </div>
@@ -229,76 +239,77 @@ class ScratchPadContainer extends React.Component {
                                             {value: 1, label: '1'},
                                             {value: 2, label: 'Option 2'}
                                         ]} />
-                    </div><br />
-                    <div>
-                        <Picker
-                            value={selectedOption}
-                            disabled
-                            placeholder="This is a disabled picker"
-                            onChange={this.handleChange}
-                            options={[
-                                { value: 1, label: '1' },
-                                { value: 2, label: 'Option 2' }
-                            ]} />
-                    </div><br/>
-                    <div>
-                        <Picker
-                            value={selectedMulti}
-                            placeholder="This is a multi picker"
-                            multi
-                            onChange={this.handleMultiChange}
-                            options={[
-                                { value: 1, label: '1' },
-                                { value: 2, label: 'Option 2' }
-                            ]} />
-                    </div><br />
-                    <div>
-                        <Picker
-                            value={selectedMulti}
-                            disabled
-                            multi
-                            placeholder="This is a disabled multi picker"
-                            onChange={this.handleMultiChange}
-                            options={[
-                                { value: 1, label: '1' },
-                                { value: 2, label: 'Option 2' }
-                            ]} />
+                                </div>
+                                <br />
+                                <div>
+                                    <Picker
+                                        value={selectedOption}
+                                        disabled
+                                        placeholder="This is a disabled picker"
+                                        onChange={this.handleChange}
+                                        options={[
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: 'Option 2' }
+                                        ]} />
+                                </div><br/>
+                                <div>
+                                    <Picker
+                                        value={selectedMulti}
+                                        placeholder="This is a multi picker"
+                                        multi
+                                        onChange={this.handleMultiChange}
+                                        options={[
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: 'Option 2' }
+                                        ]} />
+                                </div><br />
+                                <div>
+                                    <Picker
+                                        value={selectedMulti}
+                                        disabled
+                                        multi
+                                        placeholder="This is a disabled multi picker"
+                                        onChange={this.handleMultiChange}
+                                        options={[
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: 'Option 2' }
+                                        ]} />
+                                </div>
+                            </div>
+                        </Wrapper>
                     </div>
-                </div>
-            </Wrapper>
-        </div>
-        <div className="row">
-            <Wrapper>
-                <div className="col-md-12">
-                    <div>Datepickers</div>
-                    <div>
-                        <Datepicker 
-                            selected={this.state.selectedDate} 
-                            onChange={this.handleDatepickerChange}
-                            placeholder="Datepicker" />
-                    </div><br />
-                    <div>
-                        <Datepicker
-                            selected={this.state.selectedDate}
-                            onChange={this.handleDatepickerChange}
-                            placeholder="Disabled Datepicker"
-                            disabled />
+                    <div className="row">
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div>Datepickers</div>
+                                <div>
+                                    <Datepicker 
+                                        selected={this.state.selectedDate} 
+                                        onChange={this.handleDatepickerChange}
+                                        placeholder="Datepicker" />
+                                </div><br />
+                                <div>
+                                    <Datepicker
+                                        selected={this.state.selectedDate}
+                                        onChange={this.handleDatepickerChange}
+                                        placeholder="Disabled Datepicker"
+                                        disabled />
+                                </div>
+                            </div>
+                        </Wrapper>
                     </div>
+                    <Wrapper>
+                        <div className="col-md-12">
+                            <Grid 
+                                data={gridData}
+                                filterable={true}
+                                columns={gridColumns}
+                                />
+                        </div>
+                    </Wrapper>
                 </div>
-            </Wrapper>
-        </div>
-        <Wrapper>
-            <div className="col-md-12">
-                <Grid 
-                    data={gridData}
-                    filterable={true}
-                    columns={gridColumns}
-                    />
             </div>
-        </Wrapper>
-    </div>
-</div>
-)
+        )
     }
 }
 
