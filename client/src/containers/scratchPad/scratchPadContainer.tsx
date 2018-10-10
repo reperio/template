@@ -120,16 +120,16 @@ class ScratchPadContainer extends React.Component {
                                     <div className="col-md-12">
                                         <div>Buttons</div>
                                         <div className="col-md-3">
-                                            <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} />
+                                            <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} title="This is a button" />
                                         </div>
                                         <div className="col-md-3">
-                                            <Button color="danger" name="danger" text="Danger" />
+                                            <Button color="danger" name="danger" text="Danger" title="This is a button" />
                                         </div>
                                         <div className="col-md-3">
-                                            <Button color="success" name="success" text="Success" />
+                                            <Button color="success" name="success" text="Success" title="This is a button" />
                                         </div>
                                         <div className="col-md-3">
-                                            <Button color="cancel" name="cancel" text="Cancel" />
+                                            <Button color="cancel" name="cancel" text="Cancel" title="This is a button" />
                                         </div>
                                     </div>
                                 </div>
@@ -212,8 +212,8 @@ class ScratchPadContainer extends React.Component {
                                 <div>Checkboxes/Radio Buttons</div>
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <Checkbox label="Checkbox Label" name="tstChk" checked={checked} onChange={this.handleCheckboxChange} /><br/>
-                                        <Checkbox label="Disabled Checkbox Label" name="tstChkDisabled" checked={false} onChange={this.handleCheckboxChange} disabled />
+                                        <Checkbox label="Checkbox Label" name="tstChk" checked={checked} onChange={this.handleCheckboxChange} title="This is a checkbox" /><br/>
+                                        <Checkbox label="Disabled Checkbox Label" name="tstChkDisabled" checked={false} onChange={this.handleCheckboxChange} title="This is a checkbox" disabled />
                                     </div>
                                     <div className="col-md-6">
                                         <RadioButton label="Radio Label 1" name="rad" value="rad1" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
