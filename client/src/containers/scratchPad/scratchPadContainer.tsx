@@ -1,26 +1,18 @@
 import React from 'react'
-const Button = require('@reperio/ui-components').Button;
-const Anchor = require('@reperio/ui-components').Anchor;
-const Textbox = require('@reperio/ui-components').Textbox;
-const Checkbox = require('@reperio/ui-components').Checkbox;
-const RadioButton = require('@reperio/ui-components').RadioButton;
-const Picker = require('@reperio/ui-components').Picker;
-const Datepicker = require('@reperio/ui-components').Datepicker;
-const Grid = require('@reperio/ui-components').Grid;
-//import {Button, Anchor, Textbox, Checkbox, RadioButton, Picker, Datepicker, Grid} from '@reperio/ui-components';
+import {Button, Anchor, Textbox, Textarea, Checkbox, RadioButton, Picker, Datepicker, Grid, Wrapper} from '@reperio/ui-components';
 
 class ScratchPadContainer extends React.Component {
     props: any;
-    
+
     state: {
         selectedOption: string,
-        selectedMulti: any,
-        textInputValue: string,
-        selectedDate: any,
-        checked: boolean,
-        selectedRadio: string,
-        gridData: any[],
-        gridColumns: any[]
+            selectedMulti: any,
+            textInputValue: string,
+            selectedDate: any,
+            checked: boolean,
+            selectedRadio: string,
+            gridData: any[],
+            gridColumns: any[]
     } = {
         selectedOption: '',
         selectedMulti: [],
@@ -122,161 +114,200 @@ class ScratchPadContainer extends React.Component {
             <div>
                 <div className="col-md-6">
                     <div className="row">
-                        <div className="col-md-12">
-                            <div>Buttons</div>
-                            <div className="col-md-3">
-                                <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} />
-                            </div>
-                            <div className="col-md-3">
-                                <Button color="danger" name="danger" text="Danger" />
-                            </div>
-                            <div className="col-md-3">
-                                <Button color="success" name="success" text="Success" />
-                            </div>
-                            <div className="col-md-3">
-                                <Button color="cancel" name="cancel" text="Cancel" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div>Buttons (disabled)</div>
-                            <div className="col-md-3">
-                                <Button color="neutral" name="neutraldisabled" text="Neutral" disabled />
-                            </div>
-                            <div className="col-md-3">
-                                <Button color="danger" name="dangerdisabled" text="Danger" disabled />
-                            </div>
-                            <div className="col-md-3">
-                                <Button color="success" name="successdisabled" text="Success" disabled />
-                            </div>
-                            <div className="col-md-3">
-                                <Button color="cancel" name="canceldisabled" text="Cancel" disabled />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div>Inputs</div>
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a placeholder" />
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div>Buttons</div>
+                                        <div className="col-md-3">
+                                            <Button color="neutral" name="neutral" text="Neutral" onClick={this.handleClick} title="This is a button" />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <Button color="danger" name="danger" text="Danger" title="This is a button" />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <Button color="success" name="success" text="Success" title="This is a button" />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <Button color="cancel" name="cancel" text="Cancel" title="This is a button" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="col-md-6">
+                                        <Button color="neutral" name="wide_neutral" text="Wide" wide />
+                                        </div>
+                                        <div className="col-md-6">
+                                        <Button color="neutral" name="wide_neutral" text="Wide" wide />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a disabled input" disabled />
-                                </div>
-                            </div>
-                        </div>
+                        </Wrapper>
                     </div>
                     <div className="row">
-                        <div className="col-md-12">
-                            <div>Anchors</div>
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <Anchor href="#" text="Standard Link" />
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div>Buttons (disabled)</div>
+                                <div className="col-md-3">
+                                    <Button color="neutral" name="neutraldisabled" text="Neutral" disabled />
+                                </div>
+                                <div className="col-md-3">
+                                    <Button color="danger" name="dangerdisabled" text="Danger" disabled />
+                                </div>
+                                <div className="col-md-3">
+                                    <Button color="success" name="successdisabled" text="Success" disabled />
+                                </div>
+                                <div className="col-md-3">
+                                    <Button color="cancel" name="canceldisabled" text="Cancel" disabled />
                                 </div>
                             </div>
-                        </div>
+                        </Wrapper>
+                    </div>
+                    <div className="row">
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div>Inputs</div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Textbox type="text" value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a placeholder" />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Textbox value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a disabled input" disabled />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Textarea value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a placeholder" />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Textarea value={this.state.textInputValue} onChange={this.handleTextChange} placeholder="This is a disabled input" disabled />
+                                    </div>
+                                </div>
+                            </div> 
+                        </Wrapper>
+                    </div>
+                    <div className="row">
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div>Anchors</div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <Anchor href="#" text="Standard Link" />
+                                    </div>
+                                </div>
+                            </div>
+                        </Wrapper>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="row">
-                        <div className="col-md-12">
-                            <div>Checkboxes/Radio Buttons</div>
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <Checkbox label="Checkbox Label" name="tstChk" checked={checked} onChange={this.handleCheckboxChange} /><br/>
-                                    <Checkbox label="Disabled Checkbox Label" name="tstChkDisabled" checked={false} onChange={this.handleCheckboxChange} disabled />
-                                </div>
-                                <div className="col-md-6">
-                                    <RadioButton label="Radio Label 1" name="rad" value="rad1" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
-                                    <RadioButton label="Radio Label 2" name="rad" value="rad2" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div>Checkboxes/Radio Buttons</div>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <Checkbox label="Checkbox Label" name="tstChk" checked={checked} onChange={this.handleCheckboxChange} title="This is a checkbox" /><br/>
+                                        <Checkbox label="Disabled Checkbox Label" name="tstChkDisabled" checked={false} onChange={this.handleCheckboxChange} title="This is a checkbox" disabled />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <RadioButton label="Radio Label 1" name="rad" value="rad1" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
+                                        <RadioButton label="Radio Label 2" name="rad" value="rad2" selectedOption={selectedRadio} onChange={this.handleRadiochange} /><br/>
 
-                                    <RadioButton label="Disabled Label 1" name="radDis" value="rad1" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} /><br />
-                                    <RadioButton label="Disabled Label 2" name="radDis" value="rad2" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} />
+                                        <RadioButton label="Disabled Label 1" name="radDis" value="rad1" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} /><br />
+                                        <RadioButton label="Disabled Label 2" name="radDis" value="rad2" selectedOption={selectedRadio} disabled onChange={this.handleRadiochange} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Wrapper>
                     </div>
                     <div className="row">
-                        <div className="col-md-12">
-                            <div>Dropdowns</div>
-                            <div>
-                                <Picker
-                                    value={selectedOption}
-                                    placeholder="This is a single picker"
-                                    onChange={this.handleChange}
-                                    options={[
-                                        {value: 1, label: '1'},
-                                        {value: 2, label: 'Option 2'}
-                                    ]} />
-                            </div><br />
-                            <div>
-                                <Picker
-                                    value={selectedOption}
-                                    disabled
-                                    placeholder="This is a disabled picker"
-                                    onChange={this.handleChange}
-                                    options={[
-                                        { value: 1, label: '1' },
-                                        { value: 2, label: 'Option 2' }
-                                    ]} />
-                            </div><br/>
-                            <div>
-                                <Picker
-                                    value={selectedMulti}
-                                    placeholder="This is a multi picker"
-                                    multi
-                                    onChange={this.handleMultiChange}
-                                    options={[
-                                        { value: 1, label: '1' },
-                                        { value: 2, label: 'Option 2' }
-                                    ]} />
-                            </div><br />
-                            <div>
-                                <Picker
-                                    value={selectedMulti}
-                                    disabled
-                                    multi
-                                    placeholder="This is a disabled multi picker"
-                                    onChange={this.handleMultiChange}
-                                    options={[
-                                        { value: 1, label: '1' },
-                                        { value: 2, label: 'Option 2' }
-                                    ]} />
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div>Dropdowns</div>
+                                <div>
+                                    <Picker
+                                        value={selectedOption}
+                                        placeholder="This is a single picker"
+                                        onChange={this.handleChange}
+                                        options={[
+                                            {value: 1, label: '1'},
+                                            {value: 2, label: 'Option 2'}
+                                        ]} />
+                                </div>
+                                <br />
+                                <div>
+                                    <Picker
+                                        value={selectedOption}
+                                        disabled
+                                        placeholder="This is a disabled picker"
+                                        onChange={this.handleChange}
+                                        options={[
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: 'Option 2' }
+                                        ]} />
+                                </div><br/>
+                                <div>
+                                    <Picker
+                                        value={selectedMulti}
+                                        placeholder="This is a multi picker"
+                                        multi
+                                        onChange={this.handleMultiChange}
+                                        options={[
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: 'Option 2' }
+                                        ]} />
+                                </div><br />
+                                <div>
+                                    <Picker
+                                        value={selectedMulti}
+                                        disabled
+                                        multi
+                                        placeholder="This is a disabled multi picker"
+                                        onChange={this.handleMultiChange}
+                                        options={[
+                                            { value: 1, label: '1' },
+                                            { value: 2, label: 'Option 2' }
+                                        ]} />
+                                </div>
                             </div>
-                        </div>
+                        </Wrapper>
                     </div>
                     <div className="row">
-                        <div className="col-md-12">
-                            <div>Datepickers</div>
-                            <div>
-                                <Datepicker 
-                                    selected={this.state.selectedDate} 
-                                    onChange={this.handleDatepickerChange}
-                                    placeholder="Datepicker" />
-                            </div><br />
-                            <div>
-                                <Datepicker
-                                    selected={this.state.selectedDate}
-                                    onChange={this.handleDatepickerChange}
-                                    placeholder="Disabled Datepicker"
-                                    disabled />
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <div>Datepickers</div>
+                                <div>
+                                    <Datepicker 
+                                        selected={this.state.selectedDate} 
+                                        onChange={this.handleDatepickerChange}
+                                        placeholder="Datepicker" />
+                                </div><br />
+                                <div>
+                                    <Datepicker
+                                        selected={this.state.selectedDate}
+                                        onChange={this.handleDatepickerChange}
+                                        placeholder="Disabled Datepicker"
+                                        disabled />
+                                </div>
                             </div>
-                        </div>
+                        </Wrapper>
                     </div>
-                    <Grid 
-                        data={gridData}
-                        filterable={true}
-                        columns={gridColumns}
-                    />
+                    <Wrapper>
+                        <div className="col-md-12">
+                            <Grid 
+                                data={gridData}
+                                filterable={true}
+                                columns={gridColumns}
+                                />
+                        </div>
+                    </Wrapper>
                 </div>
-
-
-                
-                
             </div>
         )
     }
