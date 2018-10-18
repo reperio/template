@@ -9,7 +9,7 @@ import MainDashboardContainer from "../../containers/main/mainDashboardContainer
 import ScratchPadContainer from '../../containers/scratchPad/scratchPadContainer';
 
 const Routes = (props: any) => (
-    <div className="contentContainer">
+    <div id="contentContainer">
         <Switch>
             <PublicRouteContainer exact path="/login" component={LoginFormContainer} />
             <PrivateRouteContainer exact path="/home" component={MainDashboardContainer} />
