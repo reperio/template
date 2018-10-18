@@ -111,7 +111,7 @@ class ScratchPadContainer extends React.Component {
         const { selectedOption, selectedMulti, textInputValue, checked, selectedRadio, gridColumns, gridData } = this.state;
 
         return (
-            <div>
+            <div className="row">
                 <div className="col-md-6">
                     <div className="row">
                         <Wrapper>
@@ -298,15 +298,17 @@ class ScratchPadContainer extends React.Component {
                             </div>
                         </Wrapper>
                     </div>
-                    <Wrapper>
-                        <div className="col-md-12">
-                            <Grid 
-                                data={gridData}
-                                filterable={true}
-                                columns={gridColumns}
-                                />
-                        </div>
-                    </Wrapper>
+                    <div className="row">
+                        <Wrapper>
+                            <div className="col-md-12">
+                                <Grid 
+                                    data={gridData}
+                                    filterable={true}
+                                    columns={gridColumns}
+                                    />
+                            </div>
+                        </Wrapper>
+                    </div>
                 </div>
             </div>
         )
